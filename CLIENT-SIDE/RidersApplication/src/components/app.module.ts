@@ -8,6 +8,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule, Routes } from '@angular/router';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
 
 const routes:Routes = [
   {path: 'login', component: LoginComponent},
@@ -24,12 +25,12 @@ const routes:Routes = [
     NgbModule,
     FormsModule,
     ReactiveFormsModule,
-    RouterModule.forRoot(routes)
+    RouterModule.forRoot(routes),
+    HttpClientModule
   ],
   providers: [],
   bootstrap:[
     RootComponent,
-       
   ]
 })
 export default class AppModule { }
