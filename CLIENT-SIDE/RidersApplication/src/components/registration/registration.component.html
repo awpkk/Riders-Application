@@ -1,0 +1,143 @@
+
+  <div class="container">
+      
+    <div class="row">
+      <div class="col border">
+          
+        <!-- This is 1st main Column -->
+        <h1>Personal Information</h1>
+        <hr>
+        <form (ngSubmit)="getRegister()" [formGroup]="myForm" >
+
+            <div class="form-row">
+              <div class="form-group col-md-6">
+                <label>Name</label>
+                <input formControlName="name" type="text" class="form-control" id="inlineFormInputName" placeholder="Enter your name here">
+                <small *ngIf="myForm.get('name').dirty && myForm.get('name').invalid" class="form-text text-danger"> Enter Valid Name</small>
+
+              </div>
+              <div class="form-group col-md-6">
+                <label>Phone Number</label> 
+                <input  formControlName="phone_number" type="number" class="form-control" id="inlineFormInputName" placeholder="Enter your Phone number">
+                <small *ngIf="myForm.get('phone_number').dirty && myForm.get('phone_number').invalid" class="form-text text-danger">Enter Valid Phone Number</small>
+
+              </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    Gender
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" checked>
+                        <label class="form-check-label" for="exampleRadios1">
+                          Male
+                        </label>
+                      </div>
+                      <div class="form-check">
+                        <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="option2">
+                        <label class="form-check-label" for="exampleRadios2">
+                          Female
+                        </label>
+                      </div>
+                    
+    
+                  </div>
+                </div>
+                <!-- <div class="form-group col-md-6">
+                  <label for="inputPassword4">Password</label>
+                  <input type="password" class="form-control" id="inputPassword4">
+                </div> -->
+              
+              <div class="form-row">
+                <div class="form-group col-md-6">
+                  <label for="inputEmail4">Email</label>
+                  <input formControlName='email'  class="form-control" id="inputEmail4">
+                  <!-- <input   class="form-control" id="inputEmail4"> -->
+                  <small *ngIf="myForm.get('email').dirty && myForm.get('email').invalid" class="form-text text-danger">Email-id is invalid</small>
+                </div>
+                <div class="form-group col-md-6">
+                  <label for="inputPassword4">Password</label>
+                  <input  class="form-control" formControlName="password" id="inputPassword4">
+               <small *ngIf="myForm.get('password').dirty && myForm.get('password').invalid" class="form-text text-danger">Minimum 8 characters required for password</small>
+                </div>
+              </div>
+            <div class="form-group">
+              <label for="inputAddress">Address</label>
+              <input type="text" class="form-control" id="inputAddress" placeholder="1234 Main St">
+            </div>
+            <div class="form-group">
+              <label for="inputAddress2">Address 2</label>
+              <input type="text" class="form-control" id="inputAddress2" placeholder="Apartment, studio, or floor">
+            </div>
+            <div class="form-row">
+              <div class="form-group col-md-6">
+                <label for="inputCity">City</label>
+                <input type="text" class="form-control" id="inputCity">
+              </div>
+              <div class="form-group col-md-4">
+                <label for="inputState">State</label>
+                <select id="inputState" class="form-control">
+                  <option selected>Choose...</option>
+                  <option>...</option>
+                </select>
+              </div>
+              <div class="form-group col-md-2">
+                <label for="inputZip">Zip</label>
+                <input type="text" class="form-control" id="inputZip">
+              </div>
+            </div>
+          
+            <button type="submit" class="btn btn-primary">Save Personal details</button>
+          </form>
+      </div>
+      <div class="col">
+        <!-- This is 2nd main Column -->
+        <h1>Vehicle Information</h1>
+        <hr>
+       
+        <form>
+            <div style="margin: 20px 20px 20px 20px;">
+            <fieldset class="form-group row">
+              <legend class="col-form-label col-sm-2 float-sm-left pt-0">Vehicle type:</legend>
+              <div class="col-sm-10">
+                <div class="form-check">
+                  <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios1" value="Scooty" checked>
+                  <label class="form-check-label" for="gridRadios1">
+                    Scooty
+                  </label>
+                </div>
+                <div class="form-check">
+                  <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios2" value="Bike">
+                  <label class="form-check-label" for="gridRadios2">
+                    Bike
+                  </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios3" value="Bicycle">
+                    <label class="form-check-label" for="gridRadios2">
+                      Bicycle
+                    </label>
+                  </div>
+             
+              </div>
+            </fieldset>
+         
+           
+            <div class="form-group row">
+                <label> Vehicle number</label>
+                <input type="text" class="form-control" id="inputAddress2" placeholder="Vehicle number">
+            </div>
+            <div class="form-group row">
+                <label> Vehicle model</label>
+                <input type="text" class="form-control" id="inputAddress2" placeholder="Model">
+              
+            </div>
+            <div class="form-group row">
+                <div class="col-sm-10">
+                  <button type="submit" class="btn btn-primary">Register</button>
+                </div>
+              </div></div>
+          </form>
+      
+      </div>
+    </div>
+  </div>
