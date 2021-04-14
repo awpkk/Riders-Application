@@ -1,0 +1,8 @@
+0. Create new folder
+1. git init
+2. git clone "https://github.com/awpkk/Riders-Application.git"
+3. cd Riders-Application
+4. Create demo file in Riders-Application
+5. git add .
+6. git commit -m "MESS"
+7. git push
