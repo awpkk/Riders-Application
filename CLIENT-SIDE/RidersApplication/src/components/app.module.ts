@@ -12,7 +12,8 @@ import { RouterModule, Routes } from '@angular/router';
 const routes:Routes = [
   {path: 'login', component: LoginComponent},
   {path: 'home', component: HomepageComponent },
-  {path: 'registration', component: RegistrationComponent}
+  {path: 'registration', component: RegistrationComponent},
+  {path: '**', pathMatch:'full', redirectTo:"home" }
 ];
 
 @NgModule({
