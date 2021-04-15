@@ -9,11 +9,11 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule, Routes } from '@angular/router';
 
-const routes:Routes = [
-  {path: 'login', component: LoginComponent},
-  {path: 'home', component: HomepageComponent },
-  {path: 'registration', component: RegistrationComponent},
-  {path: '**', pathMatch:'full', redirectTo:"home" }
+const routes: Routes = [
+  { path: 'login', component: LoginComponent },
+  { path: 'home', component: HomepageComponent },
+  { path: 'registration', component: RegistrationComponent },
+  { path: '**', pathMatch: 'full', redirectTo: "home" }
 ];
 
 @NgModule({
@@ -27,9 +27,9 @@ const routes:Routes = [
     RouterModule.forRoot(routes)
   ],
   providers: [],
-  bootstrap:[
+  bootstrap: [
     RootComponent,
-       
+
   ]
 })
 export default class AppModule { }
