@@ -10,6 +10,8 @@ import { RiderService } from 'src/services/rider.service';
 })
 export class LoginComponent {
   myForm: FormGroup;
+  errorMessage = "";
+
   constructor(private riderService: RiderService, private router: Router) {
     this.myForm = new FormGroup({
       email: new FormControl("", [
@@ -30,16 +32,23 @@ export class LoginComponent {
   getLogin() {
     this.riderService.findRider(this.myForm.value.email)
       .subscribe((res: any) => {
+
         //Password validation
         var passFromDB = res.password;
         var passFromForm = this.myForm.value.password;
+
+        console.log("Password from DB = "+passFromDB)
+        console.log("Password from Form = "+passFromForm)
+
         if(passFromDB==passFromForm){
           console.log("Login successful!")
+          this.router.navigate(['/riderhome', this.myForm.value.email])
         }else{
           console.log("Login unsucessful!")
+          this.router.navigate(['/login'])
+          this.errorMessage = "Invalid credentials!";
+        
         }
-        //Open login homepage
-        this.router.navigate(['/riderhome', this.myForm.value.email])
       })
   }
 }

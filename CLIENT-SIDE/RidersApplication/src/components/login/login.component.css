@@ -5,3 +5,12 @@ input.ng-invalid{
 input.ng-valid{
     box-shadow: 0 0 5px green;
 }
+#error{
+    color: red;
+}
+#body{
+    text-align: center;
+}
+h1{
+    color:rgb(243, 123, 10);
+}

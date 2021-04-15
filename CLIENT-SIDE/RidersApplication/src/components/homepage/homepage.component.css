@@ -1,0 +1,18 @@
+a.nav-link{
+    cursor: pointer;
+    color: white;
+}
+a:hover {
+    background-color: darkblue;
+  }
+#center{
+    text-align: center;
+}
+#heading{
+    font-size: 70px;
+    color:rgb(243, 123, 10);
+}
+iframe{
+    display:block;
+    margin: 0 auto;
+}

@@ -1,36 +1,39 @@
-<div class="container">
+<div class="container d-flex justify-content-center">
     <div class="row justify-content-center align-items-center" id="row">
         <div class="col align-items-center" id="col">
             <br />
             <br />
-            <h4 id="heading">Login to continue</h4>
+            <div id = "body">
+                <h1 id="heading">LOGIN TO CONTINUE</h1>
+            </div>
             <br />
             <form (ngSubmit)="getLogin()" [formGroup]="myForm">
-                <div class="col-md-4">
+                <div >
                     <label for="validationCustomUsername" class="form-label">Email</label>
-                    <div class="col-sm-10">
+                    <div >
                         <input formControlName="email" class="form-control" placeholder="name@example.com" />
                         <small *ngIf="myForm.get('email').dirty && myForm.get('email').invalid"
                             class="form-text text-danger">Email-id is invalid
                         </small>
                     </div>
                 </div>
-                <div class="col-md-4">
+                <br>
+                <div >
                     <label for="validationCustomPassword" class="form-label">Password</label>
-                    <div class="col-sm-10">
+                    <div >
                         <input formControlName="password" type = "password" class="form-control" placeholder="password" />
                         <small *ngIf="myForm.get('password').dirty && myForm.get('password').invalid"
                             class="form-text text-danger">Password is invalid</small>
                     </div>
                     <br />
                     <div class="form-group row">
-                        <div class="col-sm-5 offset-sm-7">
-                            <button type="submit" class="btn btn-primary">Login</button>
+                        <div>
+                            <button type="submit" class="btn  btn-block btn-success">Login</button>
                         </div>
                     </div>
                 </div>
             </form>
         </div>
+        <p id="error">{{errorMessage}}</p>
     </div>
-
     <!-- [routerLink]="['/','home']" -->

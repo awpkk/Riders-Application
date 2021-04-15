@@ -2,14 +2,15 @@
   <form [formGroup]="myForm" (ngSubmit)="getRegister()">
     <div class="row">
       <div class="col border">
+
         <!-- This is 1st main Column -->
         <h1 id="center">Personal Information</h1>
         <hr>
+        <br>
         <div class="form-row">
           <div class="form-group col-md-6">
             <label><b>Name</b></label>
-            <input formControlName="name" type="text" class="form-control" id="name"
-              placeholder="Name">
+            <input formControlName="name" type="text" class="form-control" id="name" placeholder="Name">
             <small *ngIf="myForm.get('name').dirty && myForm.get('name').invalid" class="form-text text-danger"> Enter
               Valid Name</small>
           </div>
@@ -25,31 +26,32 @@
           <div class="form-group col-md-6">
             <b>Gender</b>
             <div class="form-check">
-              <input formControlName="gender" class="form-check-input" type="radio" name="gender" id="exampleRadios1" value="option1"
-                checked>
+              <input formControlName="gender" class="form-check-input" type="radio" name="gender" id="exampleRadios1"
+                value="option1" checked>
               <label class="form-check-label" for="exampleRadios1">
                 Male
               </label>
             </div>
             <div class="form-check">
-              <input formControlName="gender" class="form-check-input" type="radio" name="gender" id="exampleRadios2" value="option2">
+              <input formControlName="gender" class="form-check-input" type="radio" name="gender" id="exampleRadios2"
+                value="option2">
               <label class="form-check-label" for="exampleRadios2">
                 Female
               </label>
             </div>
           </div>
         </div>
-
         <div class="form-row">
           <div class="form-group col-md-6">
             <label for="inputEmail4"><b>Email</b></label>
-            <input formControlName='email' class="form-control" placeholder = "Email" id="inputEmail4">
+            <input formControlName='email' required class="form-control" placeholder="Email" id="inputEmail4">
             <small *ngIf="myForm.get('email').dirty && myForm.get('email').invalid"
               class="form-text text-danger">Email-id is invalid</small>
           </div>
           <div class="form-group col-md-6">
             <label for="inputPassword4"><b>Password</b></label>
-            <input class="form-control" placeholder = "Password" type = "password" formControlName="password" id="inputPassword4">
+            <input class="form-control" required placeholder="Password" type="password" formControlName="password"
+              id="inputPassword4">
             <small *ngIf="myForm.get('password').dirty && myForm.get('password').invalid"
               class="form-text text-danger">Minimum 8 characters required for password</small>
           </div>
@@ -60,28 +62,32 @@
         </div>
       </div>
       <div class="col">
+
         <!-- This is 2nd main Column -->
         <h1 id="center">Vehicle Information</h1>
         <hr>
-
+        <br>
         <div style="margin: 20px 20px 20px 20px;">
           <fieldset class="form-group row">
             <legend class="col-form-label col-sm-2 float-sm-left pt-0"><b>Vehicle type:</b></legend>
             <div class="col-sm-10">
               <div class="form-check">
-                <input formControlName="vehicleType" class="form-check-input" type="radio" name="vehicleType" id="gridRadios1" value="Scooty" checked>
+                <input formControlName="vehicleType" class="form-check-input" type="radio" name="vehicleType"
+                  id="gridRadios1" value="Scooty" checked>
                 <label class="form-check-label" for="gridRadios1">
                   Scooty
                 </label>
               </div>
               <div class="form-check">
-                <input formControlName="vehicleType" class="form-check-input" type="radio" name="vehicleType" id="gridRadios2" value="Bike">
+                <input formControlName="vehicleType" class="form-check-input" type="radio" name="vehicleType"
+                  id="gridRadios2" value="Bike">
                 <label class="form-check-label" for="gridRadios2">
                   Bike
                 </label>
               </div>
               <div class="form-check">
-                <input formControlName="vehicleType" class="form-check-input" type="radio" name="vehicleType" id="gridRadios3" value="Bicycle">
+                <input formControlName="vehicleType" class="form-check-input" type="radio" name="vehicleType"
+                  id="gridRadios3" value="Bicycle">
                 <label class="form-check-label" for="gridRadios2">
                   Bicycle
                 </label>
@@ -90,15 +96,33 @@
           </fieldset>
           <div class="form-group row">
             <label> <b>Vehicle number</b></label>
-            <input formControlName="vehicleNumber" type="text" class="form-control" id="vehicleNumber" placeholder="Vehicle Number">
+            <input formControlName="vehicleNumber" required type="text" class="form-control" id="vehicleNumber"
+              placeholder="Vehicle Number">
           </div>
           <div class="form-group row">
             <label> <b>Vehicle model</b></label>
-            <input formControlName="vehicleModel" type="text" class="form-control" id="vehicleModel" placeholder="Vehicle Model">
+            <input formControlName="vehicleModel" type="text" class="form-control" id="vehicleModel"
+              placeholder="Vehicle Model">
           </div>
           <div class="form-group row">
-            <div id="center">
-              <button type="submit" class="btn btn-primary">Register</button>
+            <div>
+              <button [disabled]="myForm.invalid" class="btn btn-success btn-block" (click)="open(content)">Register
+              </button>
+              <ng-template #content let-modal>
+                <div class="modal-header">
+                  <h1 class="modal-title" id="modal-basic-title">SUCCESS</h1>
+                  <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="modal-body">
+                  You have successfully registered!!
+                </div>
+                <div class="modal-footer">
+                  <button type="button " class="btn btn-outline-dark btn-success"
+                    (click)="modal.close('Save click')">OK</button>
+                </div>
+              </ng-template>
             </div>
           </div>
         </div>

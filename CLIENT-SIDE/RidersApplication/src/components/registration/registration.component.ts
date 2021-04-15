@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { ModalDismissReasons, NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { RiderService } from 'src/services/rider.service';
 import { getNameOfDeclaration } from 'typescript';
 
@@ -11,8 +12,8 @@ import { getNameOfDeclaration } from 'typescript';
 })
 export class RegistrationComponent implements OnInit {
   myForm: FormGroup;
-
-  constructor(private riderService: RiderService, private router: Router) {
+  closeResult = '';
+  constructor(private riderService: RiderService, private router: Router, private modalService: NgbModal) {
     
   }
   ngOnInit():void{
@@ -41,5 +42,22 @@ export class RegistrationComponent implements OnInit {
         console.log(res);
         this.router.navigate(["home"]);
       })
+  }
+
+  open(content) {
+    this.modalService.open(content, {ariaLabelledBy: 'modal-basic-title'}).result.then((result) => {
+      this.closeResult = `Closed with: ${result}`;
+    }, (reason) => {
+      this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;
+    });
+  }
+  private getDismissReason(reason: any): string {
+    if (reason === ModalDismissReasons.ESC) {
+      return 'by pressing ESC';
+    } else if (reason === ModalDismissReasons.BACKDROP_CLICK) {
+      return 'by clicking on a backdrop';
+    } else {
+      return `with: ${reason}`;
+    }
   }
 }
