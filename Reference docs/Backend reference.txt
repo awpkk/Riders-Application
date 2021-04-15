@@ -1,0 +1,19 @@
+1. User
+	register(createUser)
+	login (getUser)
+	displayUsers( getAllUsers)
+2. Ride
+	createRide - POST
+	getAllCreatedRides (Admin, join ride) - GET
+	enrollRide/{userID} - POST
+	getEnrolledRides/{userID} - GET
+	getRidesByUserID (Created rides) - GET
+	getRide/{RideID} - GET
+3. Item
+	purchase/{ItemID} - POST
+	getAllItems (Admin/User) - GET
+4. Admin
+	displayUsers( getAllUsers)
+	getAllItems (Admin/User) - GET
+	getAllCreatedRides (Admin)
+	login
