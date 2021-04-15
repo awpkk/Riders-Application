@@ -19,7 +19,13 @@ export class RegistrationComponent implements OnInit {
     this.myForm = new FormGroup({
       email: new FormControl("demo@gmail.com", [Validators.required,
       Validators.pattern("^[A-Za-z0-9._-]+@[a-z0-9.]+\.[a-z]{2,6}$")]),
+
       password: new FormControl("", [Validators.required, Validators.minLength(8)]),
+      // password: new FormControl("", [
+      //   Validators.required,
+      //   Validators.pattern("(?=^.{8,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$")
+      // ]),
+
       name: new FormControl("", [Validators.required, Validators.pattern("^[a-zA-Z ]{2,30}$")]),
       phoneNumber: new FormControl("", [Validators.required, Validators.minLength(10), Validators.maxLength(11)]),
       gender: new FormControl(""),
@@ -33,7 +39,7 @@ export class RegistrationComponent implements OnInit {
     this.riderService.saveRider(this.myForm.value)
       .subscribe((res: any) => {
         console.log(res);
-        this.router.navigate(["list"]);
+        this.router.navigate(["home"]);
       })
   }
 }

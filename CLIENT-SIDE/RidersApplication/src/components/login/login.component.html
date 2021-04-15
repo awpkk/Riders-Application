@@ -1,15 +1,13 @@
 <div class="container">
     <div class="row justify-content-center align-items-center" id="row">
-
         <div class="col align-items-center" id="col">
-            <!-- <img id="logo" src="./assets/logo.jpeg" /> -->
             <br />
             <br />
             <h4 id="heading">Login to continue</h4>
             <br />
-            <form (ngSubmit)="getRegister()" [formGroup]="myForm">
+            <form (ngSubmit)="getLogin()" [formGroup]="myForm">
                 <div class="col-md-4">
-                    <label for="validationCustomUsername" class="form-label">Username</label>
+                    <label for="validationCustomUsername" class="form-label">Email</label>
                     <div class="col-sm-10">
                         <input formControlName="email" class="form-control" placeholder="name@example.com" />
                         <small *ngIf="myForm.get('email').dirty && myForm.get('email').invalid"
@@ -19,7 +17,7 @@
                 <div class="col-md-4">
                     <label for="validationCustomPassword" class="form-label">Password</label>
                     <div class="col-sm-10">
-                        <input formControlName="password" class="form-control" placeholder="password" />
+                        <input formControlName="password" type = "password" class="form-control" placeholder="password" />
                         <small *ngIf="myForm.get('password').dirty && myForm.get('password').invalid"
                             class="form-text text-danger">Password is invalid</small>
                     </div>

@@ -24,15 +24,7 @@ export class RiderService {
   saveRider(rider){
     return this.http.post(`${this.host}/riders/register`, rider);
   }
-  // deleteBook(id){
-  //   return this.http.delete(`${this.host}/books/${id}`);
-  // }
-
-  // findBookById(id){
-  //   return this.http.get(`${this.host}/books/${id}`);
-  // }
-
-  // editBook(id, newBook){
-  //   return this.http.put(`${this.host}/books/${id}`, newBook);
-  // }
+  findRider(email){
+    return this.http.get(`${this.host}/riders/login/${email}`);
+  }
 }

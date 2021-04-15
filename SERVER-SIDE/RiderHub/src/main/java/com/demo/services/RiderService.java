@@ -1,6 +1,7 @@
 package com.demo.services;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -22,6 +23,10 @@ public class RiderService {
 		return riderRepository.save(rider);
 	}
 	
-
-
+	public Rider getRiderByEmail(String email) {
+		Optional<Rider> optional = riderRepository.findRiderByEmail(email);
+		Rider rider = optional.orElse(null);
+		System.out.println(rider);
+		return rider;
+	}
 }
