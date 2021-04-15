@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators} from '@angular/forms';
-import { Router, ActivatedRoute, ParamMap } from '@angular/router';
+import { Router} from '@angular/router';
 import { RiderService } from 'src/services/rider.service';
 
 @Component({
@@ -8,7 +8,7 @@ import { RiderService } from 'src/services/rider.service';
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
 })
-export class LoginComponent implements OnInit {
+export class LoginComponent {
   myForm: FormGroup;
   constructor(private riderService: RiderService, private router: Router) {
     this.myForm = new FormGroup({
@@ -23,9 +23,9 @@ export class LoginComponent implements OnInit {
       password: new FormControl("", [Validators.required, Validators.minLength(8)]),
     });
   }
-  ngOnInit(): void {
-    throw new Error('Method not implemented.');
-  }
+  // ngOnInit(): void {
+  //   throw new Error('Method not implemented.');
+  // }
 
   getLogin() {
     this.riderService.findRider(this.myForm.value.email)
