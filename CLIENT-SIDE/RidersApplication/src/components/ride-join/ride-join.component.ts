@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {DomSanitizer} from '@angular/platform-browser';
 import {MatIconRegistry} from '@angular/material/icon';
+import { RideService } from 'src/services/ride.service';
+import { Router } from '@angular/router';
 
 const THUMBUP_ICON = `
   <svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px">
@@ -19,27 +21,43 @@ const THUMBUP_ICON = `
 })
 export class RideJoinComponent implements OnInit {
 
-  constructor(iconRegistry: MatIconRegistry, sanitizer: DomSanitizer) {
+  constructor(iconRegistry: MatIconRegistry, private router: Router,sanitizer: DomSanitizer,private rideService: RideService) {
 
     iconRegistry.addSvgIconLiteral('thumbs-up', sanitizer.bypassSecurityTrustHtml(THUMBUP_ICON));
    }
 
   private url:string = "http://localhost:3000/rides"
-   RidesList:any  = {};
+   RidesList: [];
+   //pageEmployes: Employe[] = [];
 
    ngOnInit(){
+
+
+
+    this.getAllCreatedRides();
      
-     fetch(this.url, {
-       method: "get"
-     })
-     .then((response:any)=>{
-       return response.json();
-     })
-     .then((data:any)=>{
-       console.log(data);
-       this.RidesList = data;
-     });
+    //  fetch(this.url, {
+    //    method: "get"
+    //  })
+    //  .then((response:any)=>{
+    //    return response.json();
+    //  })
+    //  .then((data:any)=>{
+    //    console.log(data);
+    //    this.RidesList = data;
+    //  });
   
 
+}
+
+getAllCreatedRides(){
+  this.rideService.getRides()
+      .subscribe((res: any) => {
+        console.log(JSON.stringify(res));
+        this.RidesList=res;
+        //console.log("string++++++++"+this.RidesList);
+        // this.router.navigate([""]);
+      })
+  
 }
 }

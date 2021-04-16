@@ -20,7 +20,7 @@ const routes: Routes = [
   { path: 'riderhome/:email', component: HomeComponent },
   { path: 'registration', component: RegistrationComponent },
   { path: 'ride-create', component: RideCreateComponent },
-  
+  { path: 'riderhome', component: HomeComponent },
   { path: 'ride-join', component: RideJoinComponent },
   { path: '**', pathMatch: 'full', redirectTo: "home" }
 ];

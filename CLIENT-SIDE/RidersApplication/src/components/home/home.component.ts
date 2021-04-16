@@ -17,7 +17,7 @@ export class HomeComponent implements OnInit {
   ) {
     //Get email
     this.activatedroute.params.subscribe(data => {
-      console.log(data);
+      //console.log(data);
       this.email = data.email;
     })
     //Get name

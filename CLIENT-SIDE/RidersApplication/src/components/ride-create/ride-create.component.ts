@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ModalDismissReasons, NgbDateStruct, NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { RideService } from 'src/services/ride.service';
 
 @Component({
   selector: 'app-ride-create',
@@ -14,8 +15,9 @@ export class RideCreateComponent implements OnInit {
   model1: NgbDateStruct;
   closeResult = '';
 
-  private url: string = "http://localhost:3000/rides"
-  ridersList: any = {};
+  //private url: string = "http://localhost:8787/rides/create"
+ //ridersList: any = {};
+  
 
   open(content) {
     this.modalService.open(content, {ariaLabelledBy: 'modal-basic-title'}).result.then((result) => {
@@ -35,19 +37,19 @@ export class RideCreateComponent implements OnInit {
     }
   }
 
-  constructor(private router: Router,private modalService: NgbModal) { }
+  constructor(private router: Router,private modalService: NgbModal,private rideService: RideService) { }
 
   ngOnInit(): void {
     this.rideForm = new FormGroup({
 
-      ridetitle: new FormControl("", Validators.required),
+      title: new FormControl("", Validators.required),
       description: new FormControl("", Validators.required),
       source: new FormControl("", Validators.required),
       destination: new FormControl("", Validators.required),
       //startdate: new FormControl("1986-07-31", Validators.required),
       //enddate: new FormControl("1986-07-31", Validators.required),
-      startdate: new FormControl(Validators.required),
-      enddate: new FormControl(Validators.required)
+      startdate: new FormControl("",Validators.required),
+      enddate: new FormControl("",Validators.required)
 
 
 
@@ -55,7 +57,29 @@ export class RideCreateComponent implements OnInit {
   }
 
   create() {
-    console.log(this.rideForm.value);
+    this.rideService.saveRide(this.rideForm.value)
+      .subscribe((res: any) => {
+        console.log(res);
+        this.router.navigate(["riderhome"]);
+      })
+      // fetch(this.url, {
+      //     method: "post",
+      //     headers: {
+      //       "content-type": "application/json"
+      //     },
+      //     //body: JSON.stringify(this.rideForm.value)
+      //     body:this.rideForm.value
+      //   })
+      //   .then((response:any)=>{
+      //     return response.json();
+      //   })
+      //   .then((data:any)=>{
+      //     console.log(data);
+      //   });
+    
+  }
+  // create() {
+  //   console.log(this.rideForm.value);
 
  
 
@@ -63,7 +87,7 @@ export class RideCreateComponent implements OnInit {
    
 
 
-    //this.bookService.saveBook(this.bookForm.value)
+  //   this.rideService.saveRide(this.rideForm.value)
     //  let rider = {
     //    ridetitle: "",
     //    description: "",
@@ -86,21 +110,21 @@ export class RideCreateComponent implements OnInit {
     //   console.log(data);
     // });
 
-    fetch(this.url, {
-      method: "post",
-      headers: {
-        "content-type": "application/json"
-      },
-      body: JSON.stringify(this.rideForm.value)
-    })
-      .then((response: any) => {
-        return response.json();
-      })
-       .then((data: any) => {
-         console.log(data);
-       });
+  //   fetch(this.url, {
+  //     method: "post",
+  //     headers: {
+  //       "content-type": "application/json"
+  //     },
+  //     body: JSON.stringify(this.rideForm.value)
+  //   })
+  //     .then((response: any) => {
+  //       return response.json();
+  //     })
+  //      .then((data: any) => {
+  //        console.log(data);
+  //      });
 
-  }
+  // }
   
 
 }
