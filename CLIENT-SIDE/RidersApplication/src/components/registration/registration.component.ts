@@ -3,7 +3,6 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ModalDismissReasons, NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { RiderService } from 'src/services/rider.service';
-import { getNameOfDeclaration } from 'typescript';
 
 @Component({
   selector: 'app-registration',
@@ -36,7 +35,8 @@ export class RegistrationComponent implements OnInit {
       address: new FormControl("")
     });
   }
-  getRegister() {
+
+  getRegister() {   
     this.riderService.saveRider(this.myForm.value)
       .subscribe((res: any) => {
         console.log(res);
