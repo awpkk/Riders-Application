@@ -1,0 +1,13 @@
+#heading{
+    text-align: center;
+}
+#card{
+    border: 1px solid black;
+    margin: 5px;
+    padding: 5px;
+}
+#cardheader{
+    background-color:whitesmoke; 
+    color:black;
+    text-align: center;
+}

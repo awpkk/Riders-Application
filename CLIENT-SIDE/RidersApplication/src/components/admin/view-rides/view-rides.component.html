@@ -1,0 +1,27 @@
+<div class="container">
+    <h2 id="heading">List of rides</h2>
+    <div>
+      <table class="table table-striped">
+        <thead>
+          <tr class="table-secondary">
+            <th scope="col">Ride Name</th>
+            <th scope="col">Ride Description</th>
+            <th scope="col">From (Source)</th>
+            <th scope="col">To (Destination)</th>
+            <th scope="col">Start Date</th>
+            <th scope="col">End Date</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let ride of RidesList"  class="table-success">
+            <td>{{ride.RideName}}</td>
+            <td>{{ride.RideDescription}}</td>
+            <td>{{ride.From}}</td>
+            <td>{{ride.To}}</td>
+            <td>{{ride.StartDate}}</td>
+            <td>{{ride.EndDate}}</td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
