@@ -16,11 +16,11 @@ export class RideCreateComponent implements OnInit {
   closeResult = '';
 
   //private url: string = "http://localhost:8787/rides/create"
- //ridersList: any = {};
-  
+  //ridersList: any = {};
+
 
   open(content) {
-    this.modalService.open(content, {ariaLabelledBy: 'modal-basic-title'}).result.then((result) => {
+    this.modalService.open(content, { ariaLabelledBy: 'modal-basic-title' }).result.then((result) => {
       this.closeResult = `Closed with: ${result}`;
     }, (reason) => {
       this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;
@@ -37,7 +37,7 @@ export class RideCreateComponent implements OnInit {
     }
   }
 
-  constructor(private router: Router,private modalService: NgbModal,private rideService: RideService) { }
+  constructor(private router: Router, private modalService: NgbModal, private rideService: RideService) { }
 
   ngOnInit(): void {
     this.rideForm = new FormGroup({
@@ -48,8 +48,8 @@ export class RideCreateComponent implements OnInit {
       destination: new FormControl("", Validators.required),
       //startdate: new FormControl("1986-07-31", Validators.required),
       //enddate: new FormControl("1986-07-31", Validators.required),
-      startdate: new FormControl("",Validators.required),
-      enddate: new FormControl("",Validators.required)
+      startdate: new FormControl("", Validators.required),
+      enddate: new FormControl("", Validators.required)
 
 
 
@@ -62,71 +62,9 @@ export class RideCreateComponent implements OnInit {
         console.log(res);
         this.router.navigate(["riderhome"]);
       })
-      // fetch(this.url, {
-      //     method: "post",
-      //     headers: {
-      //       "content-type": "application/json"
-      //     },
-      //     //body: JSON.stringify(this.rideForm.value)
-      //     body:this.rideForm.value
-      //   })
-      //   .then((response:any)=>{
-      //     return response.json();
-      //   })
-      //   .then((data:any)=>{
-      //     console.log(data);
-      //   });
-    
+
+
   }
-  // create() {
-  //   console.log(this.rideForm.value);
-
- 
-
-    
-   
-
-
-  //   this.rideService.saveRide(this.rideForm.value)
-    //  let rider = {
-    //    ridetitle: "",
-    //    description: "",
-    //    source: "",
-    //    destination: "",
-    //    startdate: "",
-    //    enddate: ""
-    //  };
-    // fetch(this.url, {
-    //   method: "post",
-    //   headers: {
-    //     "content-type": "application/json"
-    //   },
-    //   body: JSON.stringify(rider)
-    // })
-    // .then((response:any)=>{
-    //   return response.json();
-    // })
-    // .then((data:any)=>{
-    //   console.log(data);
-    // });
-
-  //   fetch(this.url, {
-  //     method: "post",
-  //     headers: {
-  //       "content-type": "application/json"
-  //     },
-  //     body: JSON.stringify(this.rideForm.value)
-  //   })
-  //     .then((response: any) => {
-  //       return response.json();
-  //     })
-  //      .then((data: any) => {
-  //        console.log(data);
-  //      });
-
-  // }
-  
-
 }
 
 

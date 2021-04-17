@@ -1,3 +1,4 @@
+import { RideService } from './../../../services/ride.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -7,21 +8,23 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ViewRidesComponent implements OnInit {
 
-  constructor() { }
+  constructor( private rideService: RideService) { }
 
   private url:string = "http://localhost:3000/Rides"
   RidesList:any  = {};
+  
   ngOnInit(){
-    fetch(this.url, {
-      method: "get"
-    })
-    .then((response:any)=>{
-      return response.json();
-    })
-    .then((data:any)=>{
-      console.log(data);
-      this.RidesList = data;
-    });
-  }
+    this.getAllCreatedRides();
+    
+}
+
+getAllCreatedRides(){
+  this.rideService.getRides()
+      .subscribe((res: any) => {
+        console.log(JSON.stringify(res));
+        this.RidesList=res;
+      })
+  
+}
 
 }

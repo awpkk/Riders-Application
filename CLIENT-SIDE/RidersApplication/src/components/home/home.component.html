@@ -1,4 +1,4 @@
-<div class="container-fluid">
+<div class="container-fluid" id="body">
     <div class="row">
         <div class="col-3" id="col1">
             <div class="card" id="card">
@@ -6,8 +6,8 @@
                     <h3 class="card-title" id="user">Welcome!!</h3>
                 </div>
                 <ul class="list-group list-group-flush">
-                    <li class="list-group-item">Name : {{name}}</li>
-                    <li class="list-group-item">Email : {{email}}</li>
+                    <li class="list-group-item" id="name">Name : {{name}}</li>
+                    <li class="list-group-item" id="email">Email : {{email}}</li>
                 </ul>
             </div>
             <br />
@@ -23,7 +23,7 @@
                     <li><a class="dropdown-item" href="#">Enrolled rides</a></li>
                     <li><a class="dropdown-item" href="#">Created rides</a></li>
                     <li><a class="dropdown-item" href="#">Completed rides</a></li>
-                    <li><a class="dropdown-item" href="#">Shop</a></li>
+                    <li><a class="dropdown-item" [routerLink]="['/','purchase-item']">Shop</a></li>
                     <li><a class="dropdown-item" href="#">Previous orders</a></li>
                     <li><a class="dropdown-item" href="#">Share your experience</a></li>
                     <li><a class="dropdown-item" href="#">Feedbacks/Reviews</a></li>

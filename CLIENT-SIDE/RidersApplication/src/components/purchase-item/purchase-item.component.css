@@ -1,5 +1,8 @@
 #heading{
     text-align: center;
+    color: rgba(111, 0, 255, 0.795);
+    font-size: xx-large;
+    margin-top: 30px;
 }
 #card{
     border: 1px solid black;

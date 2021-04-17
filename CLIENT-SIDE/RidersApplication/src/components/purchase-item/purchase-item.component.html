@@ -4,10 +4,10 @@
     <div class="row">
       <div class="col-md-3 mx-auto my-5" *ngFor="let item of ItemsList">
         <div class="card text-white mb-2" [style.background]="getColor()">
-          <div class="card-header" id="cardheader">{{item.ItemName}}</div>
+          <div class="card-header" id="cardheader">{{item.name}}</div>
           <div class="card-body">
-            <p class="card-text">{{item.ItemDescription}}</p>
-            <p class="card-text">{{item.Price}}</p>
+            <p class="card-text">Description: {{item.description}}</p>
+            <p class="card-text">Price: {{item.price}}</p>
           </div>
           <button class="btn btn-dark" data-toggle="modal" data-target="#exampleModal">Buy now!</button>
         </div>

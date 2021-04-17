@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { RiderService } from 'src/services/rider.service';
 
 @Component({
   selector: 'app-view-riders',
@@ -7,20 +8,23 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ViewRidersComponent implements OnInit {
 
-  constructor() { }
+  constructor( private riderService: RiderService) { }
 
   private url:string = "http://localhost:3000/Riders"
   RidersList:any  = {};
+  
   ngOnInit(){
-    fetch(this.url, {
-      method: "get"
-    })
-    .then((response:any)=>{
-      return response.json();
-    })
-    .then((data:any)=>{
-      console.log(data);
-      this.RidersList = data;
-    });
-  }
+    this.getAllCreatedRiders();
+    
+}
+
+getAllCreatedRiders(){
+  this.riderService.getRiders()
+      .subscribe((res: any) => {
+        console.log(JSON.stringify(res));
+        this.RidersList=res;
+      })
+  
+}
+
 }

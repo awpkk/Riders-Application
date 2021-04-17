@@ -1,27 +1,31 @@
 <div class="container">
-    <h2 id="heading">List of riders</h2>
-    <div>
-      <table class="table table-striped">
-        <thead>
-          <tr class="table-danger">
-            <th scope="col">Ride Name</th>
-            <th scope="col">Ride Description</th>
-            <th scope="col">From (Source)</th>
-            <th scope="col">To (Destination)</th>
-            <th scope="col">Start Date</th>
-            <th scope="col">End Date</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr *ngFor="let ride of RidersList"  class="table-warning">
-            <td>{{ride.Name}}</td>
-            <td>{{ride.Gender}}</td>
-            <td>{{ride.From}}</td>
-            <td>{{ride.To}}</td>
-            <td>{{ride.StartDate}}</td>
-            <td>{{ride.EndDate}}</td>
+  <h2 id="heading">List of riders</h2>
+  <div>
+    <table class="table table-striped">
+      <thead>
+        <tr class="table-danger">
+          <th scope="col">Name</th>
+          <th scope="col">Gender</th>
+          <th scope="col">Phone Number</th>
+          <th scope="col">Email</th>
+          <th scope="col">Address</th>
+          <th scope="col">Vehicle type</th>
+          <th scope="col">Vehicle number</th>
+          <th scope="col">Vehicle model</th>
         </tr>
-        </tbody>
-      </table>
-    </div>
+      </thead>
+      <tbody>
+        <tr *ngFor="let rider of RidersList" class="table-warning">
+          <td>{{rider.name}}</td>
+          <td>{{rider.gender}}</td>
+          <td>{{rider.phoneNumber}}</td>
+          <td>{{rider.email}}</td>
+          <td>{{rider.address}}</td>
+          <td>{{rider.vehicleType}}</td>
+          <td>{{rider.vehicleNumber}}</td>
+          <td>{{rider.vehicleModel}}</td>
+        </tr>
+      </tbody>
+    </table>
   </div>
+</div>
