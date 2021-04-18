@@ -21,7 +21,7 @@ const THUMBUP_ICON = `
 })
 export class RideJoinComponent implements OnInit {
 
-  constructor(iconRegistry: MatIconRegistry, private router: Router,sanitizer: DomSanitizer,private rideService: RideService) {
+  constructor(iconRegistry: MatIconRegistry, sanitizer: DomSanitizer,private rideService: RideService) {
 
     iconRegistry.addSvgIconLiteral('thumbs-up', sanitizer.bypassSecurityTrustHtml(THUMBUP_ICON));
    }
@@ -31,23 +31,8 @@ export class RideJoinComponent implements OnInit {
    //pageEmployes: Employe[] = [];
 
    ngOnInit(){
-
-
-
     this.getAllCreatedRides();
-     
-    //  fetch(this.url, {
-    //    method: "get"
-    //  })
-    //  .then((response:any)=>{
-    //    return response.json();
-    //  })
-    //  .then((data:any)=>{
-    //    console.log(data);
-    //    this.RidesList = data;
-    //  });
-  
-
+    
 }
 
 getAllCreatedRides(){
@@ -55,8 +40,6 @@ getAllCreatedRides(){
       .subscribe((res: any) => {
         console.log(JSON.stringify(res));
         this.RidesList=res;
-        //console.log("string++++++++"+this.RidesList);
-        // this.router.navigate([""]);
       })
   
 }

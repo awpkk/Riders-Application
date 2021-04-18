@@ -1,3 +1,5 @@
+import { ViewRidesComponent } from './admin/view-rides/view-rides.component';
+import { ViewRidersComponent } from './admin/view-riders/view-riders.component';
 import { RegistrationComponent } from './registration/registration.component';
 import { HomepageComponent } from './homepage/homepage.component';
 import { LoginComponent } from './login/login.component';
@@ -13,6 +15,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HomeComponent } from './home/home.component';
 import { RideCreateComponent } from './ride-create/ride-create.component';
 import { RideJoinComponent } from './ride-join/ride-join.component';
+import { PurchaseItemComponent } from './purchase-item/purchase-item.component';
+import { AdminRootComponent } from './admin/admin-root/admin-root.component';
 
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
@@ -22,11 +26,17 @@ const routes: Routes = [
   { path: 'ride-create', component: RideCreateComponent },
   { path: 'riderhome', component: HomeComponent },
   { path: 'ride-join', component: RideJoinComponent },
+  { path: 'purchase-item', component: PurchaseItemComponent },
+  { path: 'admin-root', component: AdminRootComponent },
+  { path: 'view-rides', component: ViewRidesComponent },
+  { path: 'view-riders', component: ViewRidersComponent },
   { path: '**', pathMatch: 'full', redirectTo: "home" }
 ];
 
 @NgModule({
-  declarations: [RootComponent, LoginComponent, HomepageComponent, RideJoinComponent, RideCreateComponent, RegistrationComponent, HomeComponent],
+  declarations: [RootComponent, LoginComponent, HomepageComponent, RideJoinComponent,
+    RideCreateComponent, RegistrationComponent, HomeComponent, PurchaseItemComponent, AdminRootComponent,
+    ViewRidersComponent, ViewRidesComponent],
   imports: [
     CommonModule,
     BrowserModule,

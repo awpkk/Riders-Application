@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup, Validators} from '@angular/forms';
-import { Router} from '@angular/router';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+//import { mainModule } from 'node:process';
 import { RiderService } from 'src/services/rider.service';
 
 @Component({
@@ -36,19 +37,28 @@ export class LoginComponent {
         //Password validation
         var passFromDB = res.password;
         var passFromForm = this.myForm.value.password;
+        // var emailFromAdmin = "admin@mail.com";
+        // var passFromAdmin = "admin@1234";
+        var emailFromForm = this.myForm.value.email;
 
-        console.log("Password from DB = "+passFromDB)
-        console.log("Password from Form = "+passFromForm)
+        console.log("Password from DB = " + passFromDB)
+        console.log("Password from Form = " + passFromForm)
 
-        if(passFromDB==passFromForm){
+        if (passFromForm == "admin@1234" && emailFromForm == "admin@mail.in") {
+          console.log("Login successful!")
+          this.router.navigate(['/admin-root']);
+        }
+        else if (passFromDB == passFromForm) {
           console.log("Login successful!")
           this.router.navigate(['/riderhome', this.myForm.value.email])
-        }else{
+        } else if (passFromDB != passFromForm) {
           console.log("Login unsucessful!")
           this.router.navigate(['/login'])
           this.errorMessage = "Invalid credentials!";
-        
+        } else {
+          this.errorMessage = "Invalid credentials!";
         }
       })
   }
+
 }
