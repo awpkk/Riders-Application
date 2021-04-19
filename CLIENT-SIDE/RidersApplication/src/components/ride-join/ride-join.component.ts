@@ -2,7 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import {DomSanitizer} from '@angular/platform-browser';
 import {MatIconRegistry} from '@angular/material/icon';
 import { RideService } from 'src/services/ride.service';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
+import { LoginComponent } from '../login/login.component';
+import { ListKeyManager } from '@angular/cdk/a11y';
 
 const THUMBUP_ICON = `
   <svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px">
@@ -21,13 +23,20 @@ const THUMBUP_ICON = `
 })
 export class RideJoinComponent implements OnInit {
 
-  constructor(iconRegistry: MatIconRegistry, sanitizer: DomSanitizer,private rideService: RideService) {
+  constructor(iconRegistry: MatIconRegistry, sanitizer: DomSanitizer,private rideService: RideService, public loginComponent: LoginComponent,private activatedroute: ActivatedRoute) {
 
     iconRegistry.addSvgIconLiteral('thumbs-up', sanitizer.bypassSecurityTrustHtml(THUMBUP_ICON));
+    
+    this.activatedroute.params.subscribe(data => {
+      //console.log(data);
+      this.email = data.email;
+    })
    }
 
   private url:string = "http://localhost:3000/rides"
    RidesList: [];
+   email:any;
+  
    //pageEmployes: Employe[] = [];
 
    ngOnInit(){
@@ -42,5 +51,20 @@ getAllCreatedRides(){
         this.RidesList=res;
       })
   
+}
+
+
+enroll(ride:any){
+  console.log("in enroll +++"+this.email);
+  console.log("in enroll ride++++"+JSON.stringify(ride))
+  this.rideService.enrollRide(ride.id,this.email)
+  .subscribe((res: any) => {
+    console.log(res);
+    this.RidesList=res;
+   
+  })
+
+
+
 }
 }

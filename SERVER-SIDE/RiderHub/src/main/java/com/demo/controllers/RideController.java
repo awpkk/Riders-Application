@@ -26,8 +26,10 @@ public class RideController {
 	@GetMapping("/all")
 //	http://localhost/8787/rides/all
 	public List<Ride> getAllRides() {
+		List<Ride> allRides = rideService.getAllRides();
 		System.out.println("in get mapping");
-		return rideService.getAllRides();
+		System.out.println(allRides);
+		return allRides ;
 	}
 	@PostMapping("/create")
 //	http://localhost/8787/rides/create

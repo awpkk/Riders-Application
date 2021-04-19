@@ -16,13 +16,13 @@
               <div class="card-text"><h4>Trip Start Date: {{ride.startdate}}</h4></div>
               <div class="card-text"><h4>Trip End Date: {{ride.enddate}}</h4></div><br/>
               <div>
-                   <button class="btn btn-warning " >LIKE</button>&nbsp;&nbsp;
+                   <button class="btn btn-warning "  >LIKE</button>&nbsp;&nbsp;
                   <button class="btn btn-warning ">DISLIKE</button> 
                   <mat-icon svgIcon="thumbs-up" aria-hidden="false" aria-label="Example thumbs up SVG icon"></mat-icon>
 
               </div>
             </div>
-            <button class="btn btn-dark" data-toggle="modal"  data-target="#exampleModal">JOIN RIDE!</button>
+            <button (click)="enroll(ride)" class="btn btn-dark" data-toggle="modal"  data-target="#exampleModal">JOIN RIDE!</button>
           </div>
         </div>
     </div>

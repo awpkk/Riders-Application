@@ -25,7 +25,7 @@ const routes: Routes = [
   { path: 'registration', component: RegistrationComponent },
   { path: 'ride-create', component: RideCreateComponent },
   { path: 'riderhome', component: HomeComponent },
-  { path: 'ride-join', component: RideJoinComponent },
+  { path: 'ride-join/:email', component: RideJoinComponent },
   { path: 'purchase-item', component: PurchaseItemComponent },
   { path: 'admin-root', component: AdminRootComponent },
   { path: 'view-rides', component: ViewRidesComponent },
@@ -47,7 +47,7 @@ const routes: Routes = [
     RouterModule.forRoot(routes),
     HttpClientModule
   ],
-  providers: [RegistrationComponent],
+  providers: [RegistrationComponent, LoginComponent],
   bootstrap: [
     RootComponent,
   ]

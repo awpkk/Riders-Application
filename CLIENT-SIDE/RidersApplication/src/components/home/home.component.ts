@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { RiderService } from 'src/services/rider.service';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -10,10 +10,12 @@ import { ActivatedRoute } from '@angular/router';
 export class HomeComponent implements OnInit {
   email: any;
   name: any;
+
   ngOnInit(): void { }
   constructor(
     private activatedroute: ActivatedRoute,
-    public riderService: RiderService
+    public riderService: RiderService,
+    private router: Router
   ) {
     //Get email
     this.activatedroute.params.subscribe(data => {
@@ -25,5 +27,8 @@ export class HomeComponent implements OnInit {
       .subscribe((res: any) => {
         this.name = res.name;
       })
+  }
+  joinride(){
+    this.router.navigate(['/ride-join', this.email])
   }
 }

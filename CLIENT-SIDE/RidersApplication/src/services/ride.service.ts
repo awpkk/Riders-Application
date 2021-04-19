@@ -48,6 +48,12 @@ export class RideService {
   // findRider(email){
   //   return this.http.get(`${this.host}/riders/login/${email}`);
   // }
+  // enrollRide(ride : any, email:any){
+  //   return this.http.post(`${this.host}/riders/enroll/${email}`,ride);
+  // }
+  enrollRide(id: number, email:any){
+    return this.http.post(`${this.host}/riders/enroll/${email}`,id);
+  }
 
  
 }

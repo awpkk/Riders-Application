@@ -1,36 +1,41 @@
 package com.demo.entities;
 
-
-
-import java.util.Date;
+import java.util.HashSet;
+import java.util.Set;
 
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @Entity
 public class Ride {
-	
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int id;
-	
+
 	private String title;
-	
+
 	private String description;
-	
+
 	private String source;
-	
+
 	private String destination;
-	
-	//@JsonProperty("startdate")
+
+	// @JsonProperty("startdate")
 	private String startdate;
-	
-	//@JsonProperty("enddate")
+
+	// @JsonProperty("enddate")
 	private String enddate;
+
+	@ManyToMany(mappedBy = "rides",fetch = FetchType.LAZY)
+	@JsonIgnoreProperties("rides")
+	private Set<Rider> riders = new HashSet<>();
 
 	public int getId() {
 		return id;
@@ -39,10 +44,6 @@ public class Ride {
 	public void setId(int id) {
 		this.id = id;
 	}
-
-	
-
-	
 
 	public String getTitle() {
 		return title;
@@ -92,19 +93,23 @@ public class Ride {
 		this.enddate = enddate;
 	}
 
+	
+
+	
+
+	public Set<Rider> getRiders() {
+		return riders;
+	}
+
+	public void setRiders(Set<Rider> riders) {
+		this.riders = riders;
+	}
+
 	@Override
 	public String toString() {
 		return "Ride [id=" + id + ", title=" + title + ", description=" + description + ", source=" + source
 				+ ", destination=" + destination + ", startdate=" + startdate + ", enddate=" + enddate + "]";
 	}
 
-
-	
-	
-	
-
-	
-
-	
 
 }

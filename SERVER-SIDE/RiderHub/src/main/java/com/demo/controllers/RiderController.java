@@ -6,10 +6,12 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.demo.entities.Ride;
 import com.demo.entities.Rider;
 
 import com.demo.services.RiderService;
@@ -36,5 +38,10 @@ public class RiderController {
 	@GetMapping("login/{email}")
 	public Rider getRider(@PathVariable String email) {
 		return riderService.getRiderByEmail(email);
+	}
+	//http://localhost/8787/riders/enroll/sk@gmail.com
+	@PostMapping("/enroll/{email}")
+	public void enrollRide(@RequestBody int id, @PathVariable String email ) {
+		 riderService.enrollRide(id,email);
 	}
 }
