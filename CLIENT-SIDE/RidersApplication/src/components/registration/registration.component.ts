@@ -14,9 +14,9 @@ export class RegistrationComponent implements OnInit {
   myForm: FormGroup;
   closeResult = '';
   constructor(private riderService: RiderService, private router: Router, private modalService: NgbModal) {
-    
+
   }
-  ngOnInit():void{
+  ngOnInit(): void {
     this.myForm = new FormGroup({
       email: new FormControl("", [Validators.required,
       Validators.pattern("^[A-Za-z0-9._-]+@[a-z0-9.]+\.[a-z]{2,6}$")]),
@@ -45,7 +45,7 @@ export class RegistrationComponent implements OnInit {
   }
 
   open(content) {
-    this.modalService.open(content, {ariaLabelledBy: 'modal-basic-title'}).result.then((result) => {
+    this.modalService.open(content, { ariaLabelledBy: 'modal-basic-title' }).result.then((result) => {
       this.closeResult = `Closed with: ${result}`;
     }, (reason) => {
       this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;

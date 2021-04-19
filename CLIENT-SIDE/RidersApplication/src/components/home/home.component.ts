@@ -28,7 +28,13 @@ export class HomeComponent implements OnInit {
         this.name = res.name;
       })
   }
-  joinride(){
+  joinride() {
     this.router.navigate(['/ride-join', this.email])
+  }
+  enrollRide() {
+    this.router.navigate(['/enrolled-rides', this.email])
+  }
+  createride() {
+    this.router.navigate(['/ride-create', this.email])
   }
 }

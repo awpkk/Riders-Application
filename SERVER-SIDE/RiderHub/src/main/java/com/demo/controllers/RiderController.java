@@ -1,4 +1,5 @@
 package com.demo.controllers;
+
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,30 +19,39 @@ import com.demo.services.RiderService;
 
 @RestController
 @RequestMapping("riders")
-@CrossOrigin(origins = {"https://hoppscotch.io","http://localhost:4200"})
+@CrossOrigin(origins = { "https://hoppscotch.io", "http://localhost:4200" })
 public class RiderController {
-	
+
 	@Autowired
 	RiderService riderService;
-	
+
 	@GetMapping("/all")
 //	http://localhost/8787/riders/all
 	public List<Rider> getAllRiders() {
 		System.out.println("in get mapping");
 		return riderService.getAllRiders();
 	}
+
 	@PostMapping("/register")
 //	http://localhost/8787/riders/register
 	public Rider addRider(@RequestBody Rider rider) {
 		return riderService.addRider(rider);
 	}
+
 	@GetMapping("login/{email}")
 	public Rider getRider(@PathVariable String email) {
 		return riderService.getRiderByEmail(email);
 	}
-	//http://localhost/8787/riders/enroll/sk@gmail.com
+
+	// http://localhost/8787/riders/enroll/sk@gmail.com
 	@PostMapping("/enroll/{email}")
-	public void enrollRide(@RequestBody int id, @PathVariable String email ) {
-		 riderService.enrollRide(id,email);
+	public void enrollRide(@RequestBody int id, @PathVariable String email) {
+		riderService.enrollRide(id, email);
+	}
+
+	// ${this.host}/riders/getEnrolledRides/${email}
+	@GetMapping("getEnrolledRides/{email}")
+	public List<Ride> getEnrolledRides(@PathVariable String email) {
+		return riderService.getRidesByEmail(email);
 	}
 }

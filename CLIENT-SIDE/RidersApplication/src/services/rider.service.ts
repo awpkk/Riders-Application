@@ -5,26 +5,29 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class RiderService {
-  private data:any[] = [];
+  private data: any[] = [];
 
-  public set riders(riders){
+  public set riders(riders) {
     this.data = riders;
   }
-  public get riders(){
+  public get riders() {
     return this.data;
   }
 
-  private host:string = "http://localhost:8787";
+  private host: string = "http://localhost:8787";
 
   constructor(private http: HttpClient) { }
 
-  getRiders(){
+  getRiders() {
     return this.http.get(`${this.host}/riders/all`);
   }
-  saveRider(rider){
+  saveRider(rider) {
     return this.http.post(`${this.host}/riders/register`, rider);
   }
-  findRider(email){
+  findRider(email) {
     return this.http.get(`${this.host}/riders/login/${email}`);
+  }
+  getRides(email) {
+    return this.http.get(`${this.host}/riders/getEnrolledRides/${email}`);
   }
 }

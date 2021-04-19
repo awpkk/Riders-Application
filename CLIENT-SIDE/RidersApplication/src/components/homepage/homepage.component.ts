@@ -14,9 +14,8 @@ export class HomepageComponent implements OnInit {
 
   scroll(sectionId) {
     let element = document.getElementById(sectionId);
-    if(!!element) {
+    if (!!element) {
       element.scrollIntoView(); // scroll to a particular element
     }
   }
-  
 }
