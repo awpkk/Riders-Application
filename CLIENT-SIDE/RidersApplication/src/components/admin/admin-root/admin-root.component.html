@@ -1,15 +1,11 @@
 <div id="admin-root">
-    <h1>Admin page is here!</h1>
-    <div class = "row">
-        <div class="col-sm-2" id="links">
-            <button type="button" class="btn btn-dark" [routerLink]="['/','view-rides']">View rides</button>
-            <br/>
-            <br/>
-            <button type="button" class="btn btn-dark" [routerLink]="['/','view-riders']">View riders</button>
+    <h1 id="heading">ADMIN PAGE IS HERE!</h1>
+    
+        <div>
+            <button id="btn1" type="button" class="btn-dark btn-lg" [routerLink]="['/','view-rides']">View rides</button>
+            &nbsp; 
+            <button id="btn2" type="button" class="btn btn-dark" [routerLink]="['/','view-riders']">View riders</button>
         </div>
-        <div class="col-sm-10">
-            <router-outlet></router-outlet>
-            <router-outlet></router-outlet>
-        </div>
-    </div>
+      
+    
 </div>
