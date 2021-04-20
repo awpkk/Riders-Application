@@ -1,0 +1,33 @@
+Handler -> @GetMapping("login/{email}")
+should be -> @PostMapping("/login")
+    {
+        "email": email,
+        "password: password
+    }
+
+    process
+
+    return Rider or null
+        without password
+
+
+Login 
+    with valid email and invalid password
+        ????
+        no message
+    with invalid email and invalid password
+        ????
+        you dont have account
+
+
+Click on button/links
+    page - rerender
+        use SPA
+
+
+Create ride 
+    with invalid data 
+        message 
+        date should not be past 
+
+        
