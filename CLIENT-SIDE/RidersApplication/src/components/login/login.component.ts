@@ -1,8 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
+import { Router, Routes } from '@angular/router';
 //import { mainModule } from 'node:process';
 import { RiderService } from 'src/services/rider.service';
+import { NavigationExtras } from "@angular/router";
+
 
 @Component({
   selector: 'app-login',
@@ -11,7 +13,8 @@ import { RiderService } from 'src/services/rider.service';
 })
 export class LoginComponent {
   myForm: FormGroup;
-  errorMessage = "";
+  errorMessage: String;
+  
 
   constructor(private riderService: RiderService, private router: Router) {
     this.myForm = new FormGroup({
@@ -26,38 +29,25 @@ export class LoginComponent {
       password: new FormControl("", [Validators.required, Validators.minLength(8)]),
     });
   }
-  // ngOnInit(): void {
-  //   throw new Error('Method not implemented.');
-  // }
+ 
 
   getLogin() {
-    this.riderService.findRider(this.myForm.value.email)
+    this.riderService.findRider(this.myForm.value.email,this.myForm.value.password)
       .subscribe((res: any) => {
+       
+        
+        console.log(res);
 
-        //Password validation
-        var passFromDB = res.password;
-        var passFromForm = this.myForm.value.password;
-        // var emailFromAdmin = "admin@mail.com";
-        // var passFromAdmin = "admin@1234";
-        var emailFromForm = this.myForm.value.email;
-
-        console.log("Password from DB = " + passFromDB)
-        console.log("Password from Form = " + passFromForm)
-
-        if (passFromForm == "admin@1234" && emailFromForm == "admin@mail.in") {
-          console.log("Login successful!")
-          this.router.navigate(['/admin-root']);
+        if(res==1){
+          this.errorMessage= "You do not have an account";
+        }else if(res==2){
+          this.router.navigate(['/afterlogin2/riderhome3/'+ this.myForm.value.email]);
+        }else if(res==3){
+          this.errorMessage= "Wrong Password";
+        }else if(res==4){
+          this.router.navigate(['/admin/adminroot']);
         }
-        else if (passFromDB == passFromForm) {
-          console.log("Login successful!")
-          this.router.navigate(['/riderhome', this.myForm.value.email])
-        } else if (passFromDB != passFromForm) {
-          console.log("Login unsucessful!")
-          this.router.navigate(['/login'])
-          this.errorMessage = "Invalid credentials!";
-        } else {
-          this.errorMessage = "Invalid credentials!";
-        }
+
       })
   }
 

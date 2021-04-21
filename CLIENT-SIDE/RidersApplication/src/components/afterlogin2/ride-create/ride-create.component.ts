@@ -15,6 +15,10 @@ export class RideCreateComponent implements OnInit {
   model1: NgbDateStruct;
   closeResult = '';
   email: any;
+  maxday: number;
+  minDate: { year: number; month: number; day: number; };
+  endDate: { year: number; month: number; day: number; };
+  
 
   //private url: string = "http://localhost:8787/rides/create"
   //ridersList: any = {};
@@ -42,7 +46,12 @@ export class RideCreateComponent implements OnInit {
       this.email = data.email;
     })
   }
-
+  public today: Date = new Date();
+  public currentYear: number = this.today.getFullYear();
+  public currentMonth: number = this.today.getMonth();
+  public currentDay: number = this.today.getDate();
+  //public minDate: Object = new Date(this.currentYear, this.currentMonth, this.currentDay);
+ 
   ngOnInit(): void {
     this.rideForm = new FormGroup({
       title: new FormControl("", Validators.required),
@@ -52,13 +61,20 @@ export class RideCreateComponent implements OnInit {
       startdate: new FormControl("", Validators.required),
       enddate: new FormControl("", Validators.required)
     });
+    this.maxday=this.rideForm.value.startdate.day;
+    this.minDate={"year":this.currentYear,"month":this.currentMonth+1,"day":this.currentDay};
+    //this.endDate={"year":this.currentYear,"month":this.currentMonth+1, "day":this.maxday};
+  
   }
 
   create() {
     this.rideService.saveRide(this.rideForm.value)
       .subscribe((res: any) => {
         console.log(res);
-        this.router.navigate(['/riderhome', this.email])
+        console.log("in reide create and create++++"+this.email)
+        this.router.navigate(['/afterlogin2/riderhome3/'+this.email])
       })
+
   }
+ 
 }

@@ -1,11 +1,21 @@
-<div id="admin-root">
+<!-- <div id="admin-root">
     <h1 id="heading">ADMIN PAGE IS HERE!</h1>
     
         <div>
-            <button id="btn1" type="button" class="btn-dark btn-lg" [routerLink]="['/','view-rides']">View rides</button>
-            &nbsp; 
-            <button id="btn2" type="button" class="btn btn-dark" [routerLink]="['/','view-riders']">View riders</button>
+          
+            <img id="imgbt" src="./assets/ViewRides.JPG" class="img-fluid" type="button" [routerLink]="['/admin/adminroot/viewrides']" >
+            <button id="btn2" type="button" class="btn btn-dark" [routerLink]="['/admin/adminroot/viewriders']">View riders</button>
         </div>
-      
-    
+        <img id="imgbt" src="./assets/ViewRides.JPG" class="img-fluid" type="button" [routerLink]="['/admin/adminroot/viewrides']" >
+   
+</div> -->
+<button type="button" class="btn btn-outline-danger" [routerLink]="['/','home']">Sign out</button>
+<div class="container px-lg-5">
+  <div class="row mx-lg-n5">
+    <div class="col py-3 px-lg-5 border bg-light"><img id="imgbt" src="./assets/ViewRides.JPG" class="img-fluid" type="button" [routerLink]="['/admin/adminroot/viewrides']" ></div>
+    <div class="col py-3 px-lg-5 border bg-light"><img id="imgbt" src="./assets/ViewRides.JPG" class="img-fluid" type="button" [routerLink]="['/admin/adminroot/viewriders']"></div>
+  </div>
+</div>
+<div>
+    <router-outlet></router-outlet>
 </div>

@@ -28,12 +28,14 @@
                     <br />
                     <div class="form-group row">
                         <div>
-                            <button type="submit" class="btn  btn-block btn-success">Login</button>
+                            <button  [disabled]="myForm.invalid" type="submit" class="btn  btn-block btn-success">Login</button>
                         </div>
                     </div>
                 </div>
             </form>
         </div>
-        <p id="error">{{errorMessage}}</p>
+        <p id="error">{{errorMessage}}</p> 
+        <p class="h6">New to RidersHub! <a  [routerLink]="['/','registration']">Register here</a> </p>
+        <p class="h6">Go back to <a  [routerLink]="['/','home']">Home </a> </p>
     </div>
     <!-- [routerLink]="['/','home']" -->

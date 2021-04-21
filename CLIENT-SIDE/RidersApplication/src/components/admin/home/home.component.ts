@@ -1,12 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 import { RiderService } from 'src/services/rider.service';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute, Router, RouterModule, Routes } from '@angular/router';
+import { PurchaseItemComponent } from '../purchase-item/purchase-item.component';
 
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css']
 })
+
 export class HomeComponent implements OnInit {
   email: any;
   name: any;
@@ -23,7 +25,7 @@ export class HomeComponent implements OnInit {
       this.email = data.email;
     })
     //Get name
-    this.riderService.findRider(this.email)
+    this.riderService.findRider2(this.email)
       .subscribe((res: any) => {
         this.name = res.name;
       })

@@ -12,5 +12,5 @@ export class RootComponent implements OnInit {
 
   ngOnInit(): void {
   }
-
+ 
 }

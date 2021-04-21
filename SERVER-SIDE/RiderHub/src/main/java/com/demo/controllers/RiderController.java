@@ -38,9 +38,18 @@ public class RiderController {
 		return riderService.addRider(rider);
 	}
 
-	@GetMapping("login/{email}")
+	@PostMapping("/validate/{email}")
+	public int getRiderLogin(@PathVariable String email,@RequestBody String password) {
+		System.out.println(riderService.getRiderLogin(email,password)+" in controller");
+		return riderService.getRiderLogin(email,password);
+		
+	}
+
+	
+	
+	@GetMapping("/home/{email}")
 	public Rider getRider(@PathVariable String email) {
-		return riderService.getRiderByEmail(email);
+		return riderService.getRiderbyEmail(email);
 	}
 
 	// http://localhost/8787/riders/enroll/sk@gmail.com
@@ -50,8 +59,9 @@ public class RiderController {
 	}
 
 	// ${this.host}/riders/getEnrolledRides/${email}
-	@GetMapping("getEnrolledRides/{email}")
+	@GetMapping("/getEnrolledRides/{email}")
 	public List<Ride> getEnrolledRides(@PathVariable String email) {
 		return riderService.getRidesByEmail(email);
 	}
+	
 }

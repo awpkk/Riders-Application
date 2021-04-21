@@ -3,7 +3,7 @@ import { DomSanitizer } from '@angular/platform-browser';
 import { MatIconRegistry } from '@angular/material/icon';
 import { RideService } from 'src/services/ride.service';
 import { ActivatedRoute, Router } from '@angular/router';
-import { LoginComponent } from '../login/login.component';
+import { LoginComponent } from '../../login/login.component';
 
 const THUMBUP_ICON = `
   <svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px">
@@ -32,6 +32,7 @@ export class RideJoinComponent implements OnInit {
       //console.log(data);
       this.email = data.email;
     })
+    this.getAllCreatedRides();
   }
 
   private url: string = "http://localhost:3000/rides"
@@ -39,7 +40,7 @@ export class RideJoinComponent implements OnInit {
   email: any;
 
   ngOnInit() {
-    this.getAllCreatedRides();
+  
   }
 
   getAllCreatedRides() {
@@ -58,7 +59,11 @@ export class RideJoinComponent implements OnInit {
         this.RidesList = res;
       })
   }
-  goToHome() {
-    this.router.navigate(['/riderhome', this.email])
+  // goToHome() {
+  //   this.router.navigate(['/afterlogin2/riderhome3/'+ this.email])
+  // }
+    goToJoin() {
+      this.router.navigate(['/afterlogin2/riderhome3/'+this.email+'/ridejoin2/'+this.email])
+      this.getAllCreatedRides();
   }
 }

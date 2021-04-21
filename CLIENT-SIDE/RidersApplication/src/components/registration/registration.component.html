@@ -108,6 +108,8 @@
             <div>
               <button [disabled]="myForm.invalid" class="btn btn-success btn-block" (click)="open(content)">Register
               </button>
+              <p class="h6">Already Registered! <a  [routerLink]="['/','login']">Login here </a> </p>
+              <p class="h6">Go back to <a  [routerLink]="['/','home']">Home </a> </p>
               <ng-template #content let-modal>
                 <div class="modal-header">
                   <h1 class="modal-title" id="modal-basic-title">SUCCESS</h1>

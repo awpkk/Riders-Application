@@ -14,6 +14,7 @@ export class EnrolledRidesComponent implements OnInit {
   constructor(private riderService: RiderService, private activatedroute: ActivatedRoute) {
     this.activatedroute.params.subscribe(data => {
       this.email = data.email;
+      console.log(this.email);
     })
   }
 
@@ -37,8 +38,9 @@ export class EnrolledRidesComponent implements OnInit {
   getEnrolledRides() {
     this.riderService.getRides(this.email)
       .subscribe((res: any) => {
-        console.log(JSON.stringify(res));
+        console.log(res);
         this.EnrolledRidesList = res;
+        console.log("This is enrolled rides list++++"+this.EnrolledRidesList);
       })
   }
 }
