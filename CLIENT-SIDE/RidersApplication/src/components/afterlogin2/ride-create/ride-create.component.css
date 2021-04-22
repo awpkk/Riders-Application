@@ -12,3 +12,25 @@ button.calendar, button.calendar:active {
     background-size: 23px;
     background-position: center;
   }
+
+  #cont{
+      width:60%;
+  }
+  #head{
+      padding:20px 0px 0px 50px;
+     
+        color:rgb(243, 123, 10);
+    
+  }
+  #left{
+      width:200px;
+      height:360px;
+      float: left;
+      padding-top: 150px;
+  }
+  #left1{
+    width:200px;
+    height:360px;
+    float: right;
+    padding-top: 150px;
+}

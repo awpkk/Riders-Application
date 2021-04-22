@@ -1,10 +1,15 @@
-<h1 class="text-center text-success font-weight-bold">CREATE NEW RIDE</h1><br />
 
-<div class="container">
+<img class="img-responsive" id="left" src="../assets/start.png"/>
+<img class="img-responsive" id="left1" src="../assets/dest.png"/>
+<div class="container" id="cont">
+  
+  <div>
+    
   <form [formGroup]="rideForm">
+    <h1 id="head" class="text-center  font-weight-bold">CREATE NEW RIDE</h1><br />
 
     <div class="form-group row">
-      <label class="col-sm-2 col-form-label">Ride Title</label>
+      <label class="col-sm-2 col-form-label font-weight-bold">Ride Title</label>
       <div class="col-sm-10">
         <input formControlName="title" class="form-control" />
         <small *ngIf="rideForm.get('title').dirty && rideForm.get('title').invalid" class="form-text text-danger">Title
@@ -13,7 +18,7 @@
     </div>
 
     <div class="form-group row">
-      <label class="col-sm-2 col-form-label">Ride Description</label>
+      <label class="col-sm-2 col-form-label font-weight-bold">Ride Description</label>
       <div class="col-sm-10">
         <input formControlName="description" class="form-control" />
         <small *ngIf="rideForm.get('description').dirty && rideForm.get('description').invalid"
@@ -22,7 +27,7 @@
     </div>
 
     <div class="form-group row">
-      <label class="col-sm-2 col-form-label">Source</label>
+      <label class="col-sm-2 col-form-label font-weight-bold">Source</label>
       <div class="col-sm-10">
         <input formControlName="source" class="form-control" />
         <small *ngIf="rideForm.get('source').dirty && rideForm.get('source').invalid"
@@ -31,7 +36,7 @@
     </div>
 
     <div class="form-group row">
-      <label class="col-sm-2 col-form-label">Destination</label>
+      <label class="col-sm-2 col-form-label font-weight-bold">Destination</label>
       <div class="col-sm-10">
         <input formControlName="destination" class="form-control" />
         <small *ngIf="rideForm.get('destination').dirty && rideForm.get('destination').invalid"
@@ -42,7 +47,7 @@
 
 
     <div class="form-group row">
-      <label class="col-sm-2 col-form-label">Trip Start date</label>
+      <label class="col-sm-2 col-form-label font-weight-bold">Trip Start date</label>
       <div class="col-sm-10">
 
         <!-- <input formControlName="startdate" class="form-control" />  -->
@@ -61,7 +66,7 @@
 
 
     <div class="form-group row">
-      <label class="col-sm-2 col-form-label">Trip End date</label>
+      <label class="col-sm-2 col-form-label font-weight-bold">Trip End Date</label>
       <div class="col-sm-10">
 
         <!-- <input formControlName="startdate" class="form-control" /> -->
@@ -83,8 +88,8 @@
 
 
     <div class="form-group row">
-      <div class="col-sm-5 offset-sm-7">
-        <button [disabled]="rideForm.invalid" class="btn btn-primary btn-block" (click)="open(content)"
+      <div class="col-sm-10 offset-sm-2">
+        <button [disabled]="rideForm.invalid" class="btn btn-success btn-lg btn-block" (click)="open(content)"
           (click)="create()">Create Ride
         </button>
         <ng-template #content let-modal>
@@ -104,11 +109,12 @@
         </ng-template>
       </div>
     </div>
-
+  
 
 
 
 
 
   </form>
+</div>
 </div>
