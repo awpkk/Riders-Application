@@ -41,7 +41,8 @@ export class LoginComponent {
         if(res==1){
           this.errorMessage= "You do not have an account";
         }else if(res==2){
-          this.router.navigate(['/afterlogin2/riderhome3/'+ this.myForm.value.email]);
+          //this.router.navigate(['/afterlogin2/riderhome3/'+ this.myForm.value.email]);
+          this.router.navigate(['/afterlogin2/riderhome3/' + this.myForm.value.email + '/rhomeimages/' + this.myForm.value.email])
         }else if(res==3){
           this.errorMessage= "Wrong Password";
         }else if(res==4){

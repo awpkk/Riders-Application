@@ -1,21 +1,30 @@
-<!-- <div id="admin-root">
-    <h1 id="heading">ADMIN PAGE IS HERE!</h1>
-    
-        <div>
-          
-            <img id="imgbt" src="./assets/ViewRides.JPG" class="img-fluid" type="button" [routerLink]="['/admin/adminroot/viewrides']" >
-            <button id="btn2" type="button" class="btn btn-dark" [routerLink]="['/admin/adminroot/viewriders']">View riders</button>
-        </div>
-        <img id="imgbt" src="./assets/ViewRides.JPG" class="img-fluid" type="button" [routerLink]="['/admin/adminroot/viewrides']" >
-   
-</div> -->
-<button type="button" class="btn btn-outline-danger" [routerLink]="['/','home']">Sign out</button>
-<div class="container px-lg-5">
-  <div class="row mx-lg-n5">
-    <div class="col py-3 px-lg-5 border bg-light"><img id="imgbt" src="./assets/ViewRides.JPG" class="img-fluid" type="button" [routerLink]="['/admin/adminroot/viewrides']" ></div>
-    <div class="col py-3 px-lg-5 border bg-light"><img id="imgbt" src="./assets/ViewRides.JPG" class="img-fluid" type="button" [routerLink]="['/admin/adminroot/viewriders']"></div>
+<div class="row align-items-center">
+  <div class="col-sm-8" id="head">
+      <h1 id="heading" class="display-2">RidersHub Application</h1>
+      <p id="name">Welcome Admin</p>
+  </div>
+  <div class="col-sm-4 text-right" id="head">
+      <img id="logo" src="./assets/logo.jpeg" width=27% />
   </div>
 </div>
-<div>
+
+
+<div class="container">
+ 
+  <div class="row">
+    <div class="col-sm " id="center">
+      <img id="imgbt" src="./assets/ViewRides.JPG" class="img-fluid rounded-pill" type="button" [routerLink]="['/admin/adminroot/viewrides']" >
+    </div>
+    <div class="col-sm" id="center">
+      <img id="imgbt" src="./assets/ViewRiders4.JPG" class="img-fluid rounded-pill" type="button" [routerLink]="['/admin/adminroot/viewriders']">
+    </div>
+   
+  </div>
+  <div class="row">
     <router-outlet></router-outlet>
+  </div>
+
+</div>
+<div id="center">
+  <button type="button" class="btn btn-outline-danger"  [routerLink]="['/','home']">Sign out</button>
 </div>
