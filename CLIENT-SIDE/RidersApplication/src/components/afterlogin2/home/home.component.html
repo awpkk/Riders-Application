@@ -18,15 +18,15 @@
         </button>
         <!--Left part-->
         <div class="collapse navbar-collapse " id="navbarNav">
-            <ul class="navbar-nav">
-                <li class="nav-item active">
-                    <a class="nav-link" (click)='loadhome() '>My Ride Images <span class="sr-only">Vagbhi </span></a>
+            <ul class="navbar-nav ">
+                <li class="nav-item ">
+                    <a class="nav-link active" (click)='loadhome() 'aria-label="Toggle navigation" aria-selected="true">My Ride Images </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" (click)='createride()'>Create ride</a>
+                    <a class="nav-link" (click)='createride()' aria-selected="false">Create ride</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" (click)='joinride()'>Join a ride</a>
+                    <a class="nav-link" (click)='joinride()' aria-selected="false">Join a ride</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" (click)='enrollRide()'>Enrolled rides</a>
