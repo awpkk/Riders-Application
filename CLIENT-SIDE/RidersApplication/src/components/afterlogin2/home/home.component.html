@@ -1,65 +1,57 @@
 <div class="container-fluid" id="body">
-    <div class="row">
-        <div class="col-3" id="col1">
-            <div class="card" id="card">
-                <div class="card-body">
-                    <h3 class="card-title" id="user">Welcome {{name}}!!</h3>
-                </div><button type="button" class="btn btn-outline-danger" [routerLink]="['/','home']">Sign out</button>
-                <!-- <ul class="list-group list-group-flush">
-                    <li class="list-group-item" id="name">Name : </li>
-                    <li class="list-group-item" id="email">Email : {{email}}</li>
-                </ul>  -->
-            </div>
-            <!-- <div class="dropdown">
-                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu2"
-                    data-bs-toggle="dropdown" aria-expanded="false">
-                    Details
-                </button> -->
-            <!-- <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                    <li><a class="dropdown-item" (click)='createride()'>Create a ride</a></li>
-                    <li><a class="dropdown-item" (click)='joinride()'>Join a ride</a></li>
-                    <li><a class="dropdown-item" (click)='enrollRide()'>Enrolled rides</a></li>
-                    <li><a class="dropdown-item" href="#">Created rides</a></li>
-                    <li><a class="dropdown-item" href="#">Completed rides</a></li>
-                    <li><a class="dropdown-item" [routerLink]="['/','purchase-item']">Shop</a></li>
-                    <li><a class="dropdown-item" href="#">Previous orders</a></li>
-                    <li><a class="dropdown-item" href="#">Share your experience</a></li>
-                    <li><a class="dropdown-item" href="#">Feedbacks/Reviews</a></li>
-                </ul> -->
-            <!-- </div> -->
-            </div>
-         
-            <!--Nav bar begins here-->
-            <!-- navbar-light bg-light -->
-            <nav class="navbar navbar-expand-lg navbar-dark bg-dark ">
-                <a class="navbar-brand" href="#">RidersHub</a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                  <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse " id="navbarNav">
-                  <ul class="navbar-nav">
-                    <li class="nav-item active">
-                      <a class="nav-link" (click)='loadhome() '>My Ride Images <span class="sr-only">Vagbhi </span></a>
-                    </li>
-                    <li class="nav-item">
-                      <a class="nav-link" (click)='createride()'>Create ride</a>
-                    </li>
-                    <li class="nav-item">
-                      <a class="nav-link" (click)='joinride()'>Join a ride</a>
-                    </li>
-                    <li class="nav-item">
-                      <a class="nav-link" (click)='enrollRide()'>Enrolled rides</a>
-                    </li>
-                    <li class="nav-item">
-                      <a class="nav-link" (click)='purchase()'>Shop</a>
-                    </li>
-                   
-                  </ul>
-                </div>
-              </nav>
-            <!--Nav bar ends here-->
-            <div id='router'>
-                <router-outlet></router-outlet>
-            </div>
+
+    <div class="row align-items-center">
+        <div class="col-sm-8" id="head">
+            <h1 id="heading" class="display-2">RidersHub Application</h1>
+            <p id="name">Welcome {{name}}</p>
+        </div>
+        <div class="col-sm-4 text-right" id="head">
+            <img id="logo" src="./assets/logo.jpeg" width=27% />
+        </div>
     </div>
+
+    <!--Nav bar begins here-->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark ">
+        <a class="navbar-brand" href="#">RidersHub</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <!--Left part-->
+        <div class="collapse navbar-collapse " id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item active">
+                    <a class="nav-link" (click)='loadhome() '>My Ride Images <span class="sr-only">Vagbhi </span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" (click)='createride()'>Create ride</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" (click)='joinride()'>Join a ride</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" (click)='enrollRide()'>Enrolled rides</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" (click)='purchase()'>Shop</a>
+                </li>
+            </ul>
+        </div>
+        <!--Right part-->
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <span class="navbar-text">
+                        <button type="button" class="btn btn-outline-danger" [routerLink]="['/','home']">Sign
+                            out</button>
+                    </span>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <!--Nav bar ends here-->
+
+    <div id='router'>
+        <router-outlet></router-outlet>
+    </div>
+
 </div>
