@@ -1,16 +1,26 @@
-#heading{
+#heading {
     text-align: center;
-    color: rgba(111, 0, 255, 0.795);
+    color: rgb(15, 14, 14);
     font-size: xx-large;
     margin-top: 30px;
+    font-weight: 600;
 }
-#card{
+
+#card {
     border: 1px solid black;
     margin: 5px;
     padding: 5px;
 }
-#cardheader{
-    background-color:whitesmoke; 
-    color:black;
+
+#cardheader {
+    background-color: whitesmoke;
+    color: black;
     text-align: center;
+    font-size: x-large;
+    font-weight: 500;
+}
+
+.modal-header {
+    background-color: rgb(15, 14, 14);
+    color: white;
 }
