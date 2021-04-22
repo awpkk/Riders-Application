@@ -1,14 +1,14 @@
 #admin-root{
     margin: 10px;
 }
-#heading{
+/* #heading{
     text-align: center;
     font-style: oblique;
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     font-weight:bolder;
     font-size: xx-large;
     color: darkmagenta;
-}
+} */
 #btn1{
     font-size: 20px;
     color: turquoise;
@@ -23,5 +23,27 @@
 }
 #imgbt{
     height: 250px;
+    width: 400px;
+    
+}
+#center{
+    text-align: center;
 }
 
+#heading {
+    font-size: xx-large;
+    font-weight: bold;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    color: rgb(243, 123, 10);
+}
+
+#head {
+    background-color: blanchedalmond
+}
+#name {
+    font-size: xx-large;
+    font-family: brush script mt;
+}
+.container{
+    margin-top: 20px;
+}
