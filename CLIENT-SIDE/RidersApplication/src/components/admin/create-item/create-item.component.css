@@ -8,3 +8,10 @@
     font-size: xx-large;
     color: rgba(144, 99, 153, 0.918);
 }
+input.ng-invalid{
+    box-shadow: 0 0 3px red;
+}
+
+input.ng-valid{
+    box-shadow: 0 0 3px green;
+}

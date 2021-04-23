@@ -6,8 +6,9 @@
       <label class="col-sm-2 col-form-label font-weight-bold">Item name</label>
       <div class="col-sm-10">
         <input formControlName="name" class="form-control" />
-        <!-- <small *ngIf="rideForm.get('title').dirty && rideForm.get('title').invalid" class="form-text text-danger">Title
-          is required</small> -->
+        <small *ngIf="itemForm.get('name').dirty && itemForm.get('name').invalid"
+          class="form-text text-danger">Name should not begin with space
+        </small>
       </div>
     </div>
 
@@ -15,19 +16,38 @@
       <label class="col-sm-2 col-form-label font-weight-bold">Description</label>
       <div class="col-sm-10">
         <input formControlName="description" class="form-control" />
-        <!-- <small *ngIf="rideForm.get('description').dirty && rideForm.get('description').invalid"
-          class="form-text text-danger">Description is required
-        </small> -->
+        <small *ngIf="itemForm.get('description').dirty && itemForm.get('description').invalid"
+          class="form-text text-danger">Description should not begin with space
+        </small>
       </div>
     </div>
 
     <div class="form-group row">
       <label class="col-sm-2 col-form-label font-weight-bold">Price</label>
       <div class="col-sm-10">
-        <input formControlName="price" class="form-control" />
-        <!-- <small *ngIf="rideForm.get('source').dirty && rideForm.get('source').invalid"
+        <!-- <input formControlName="price" class="form-control" /> -->
+        <!-- <input formControlName="price" class="form-control" valid-number ng-model="positiveNumber" placeholder="" allow-decimal="true" allow-negative="false" type="positiveNumber"> -->
+        <!-- <input type = "positiveNumber" formControlName="price" class="form-control"> -->
+        <!-- <input type="number" min="0" formControlName="price" class="form-control"> -->
+        <!-- <small *ngIf="rideForm.get('price').dirty && rideForm.get('source').invalid"
           class="form-text text-danger">Source is required
         </small> -->
+        <!-- <small *ngIf="rideForm.get('price').negative"
+          class="form-text text-danger">Source is required
+        </small> -->
+
+        <input 
+        type="number" 
+        min="0"
+        step=any 
+        oninput="validity.valid||(value='')" 
+        formControlName="price" 
+        class="form-control"
+        >
+        <small *ngIf="itemForm.get('price').dirty && itemForm.get('price').invalid"
+          class="form-text text-danger">Enter valid price please!
+        </small>
+        
       </div>
     </div>
 

@@ -41,9 +41,9 @@ export class CreateItemComponent implements OnInit {
 
   ngOnInit(): void {
     this.itemForm = new FormGroup({
-      name: new FormControl("", Validators.required),
-      description: new FormControl("", Validators.required),
-      price: new FormControl("", Validators.required),
+      name: new FormControl("", [Validators.required, Validators.pattern("^[^-\s][a-zA-Z0-9_\s-]+$")]),
+      description: new FormControl("", [Validators.required, Validators.pattern("^[^-\s][a-zA-Z0-9_\s-]+$")]),
+      price: new FormControl("", [Validators.required, Validators.pattern("[0-9]+(\.[0-9][0-9]?)?")])
     });
   }
 
@@ -64,4 +64,21 @@ export class CreateItemComponent implements OnInit {
         this.router.navigate(['/admin/adminroot']);
       })
   }
+  // message(e){
+  //   console.log("e = ")
+  //   console.log(e)
+  //   if(e.keyboardEvent.key.equals("-")){
+      
+  //   console.log("Key pressed!")
+  //    alert("You pressed a key inside the input field");
+  //   }
+
+  // }
 }
+
+
+      
+      
+
+
+    
