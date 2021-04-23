@@ -1,8 +1,9 @@
 <div class="container">
-  <h2 id="heading">List of enrolled rides</h2>
+  <h1 class="font-weight-bold text-center" id="heading">List of enrolled rides</h1>
+  <h2 id="message" class="text-danger">{{message}}</h2>
   <div>
     <table class="table table-striped">
-      <thead>
+      <thead *ngIf='checklistempty()'>
         <tr class="table-primary">
           <th scope="col">Ride Name</th>
           <th scope="col">Ride Description</th>

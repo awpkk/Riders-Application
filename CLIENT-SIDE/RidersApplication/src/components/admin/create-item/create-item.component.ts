@@ -38,13 +38,13 @@ export class CreateItemComponent implements OnInit {
       this.email = data.email;
     })
   }
- 
+
   ngOnInit(): void {
     this.itemForm = new FormGroup({
       name: new FormControl("", Validators.required),
       description: new FormControl("", Validators.required),
       price: new FormControl("", Validators.required),
-    }); 
+    });
   }
 
   createItem() {
@@ -61,9 +61,7 @@ export class CreateItemComponent implements OnInit {
       .subscribe((res: any) => {
         console.log(res);
         // console.log("in reide create and create++++"+this.email)
-        // this.router.navigate(['/afterlogin2/riderhome3/'+this.email])
+        this.router.navigate(['/admin/adminroot']);
       })
-
   }
- 
 }
