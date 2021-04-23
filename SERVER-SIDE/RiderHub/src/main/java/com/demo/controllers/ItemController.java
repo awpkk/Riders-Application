@@ -24,14 +24,14 @@ public class ItemController {
 	ItemService itemService;
 	
 	@GetMapping("/all")
-//	http://localhost/8787/items/all
+//	http://localhost:8787/items/all
 	public List<Item> getAllItems() {
 		System.out.println("in get mapping");
 		return itemService.getAllItems();
 	}
 	
 	@PostMapping("/create")
-//	http://localhost/8787/items/create
+//	http://localhost:8787/items/create
 	public Item addItem(@RequestBody Item item) {
 		return itemService.addItem(item);
 	}

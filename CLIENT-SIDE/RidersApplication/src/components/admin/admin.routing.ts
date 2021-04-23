@@ -1,5 +1,6 @@
 import { Routes } from "@angular/router";
 import { AdminRootComponent } from "./admin-root/admin-root.component";
+import { CreateItemComponent } from "./create-item/create-item.component";
 import { ViewRidersComponent } from "./view-riders/view-riders.component";
 import { ViewRidesComponent } from "./view-rides/view-rides.component";
 
@@ -15,6 +16,11 @@ const routes: Routes = [
             {
                 path: 'viewrides', // child route path
                 component: ViewRidesComponent, // child route component that the router renders
+            },
+            //createItem
+            {
+                path: 'createItem', // child route path
+                component: CreateItemComponent, // child route component that the router renders
             },
 
         ],

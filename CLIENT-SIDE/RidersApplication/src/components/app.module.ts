@@ -13,16 +13,12 @@ import { RootComponent } from "./root/root.component";
 import { NgModule } from '@angular/core';
 import routes from './app.routing';
 
-
-
-
 @NgModule({
   declarations: [
     RootComponent,
     LoginComponent,
     HomepageComponent,
-    RegistrationComponent,
-  
+    RegistrationComponent  
   ],
   imports: [
     CommonModule,
