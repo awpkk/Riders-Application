@@ -19,4 +19,7 @@ export class ItemService {
     // console.log("in save ride" + JSON.stringify(rides));
     return this.http.post(`${this.host}/items/create`, items);
   }
+  deleteItem(id){
+    return this.http.delete(`${this.host}/items/${id}`);
+  }
 }

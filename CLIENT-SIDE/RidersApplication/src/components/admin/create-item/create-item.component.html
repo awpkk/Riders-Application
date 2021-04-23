@@ -7,7 +7,7 @@
       <div class="col-sm-10">
         <input formControlName="name" class="form-control" />
         <small *ngIf="itemForm.get('name').dirty && itemForm.get('name').invalid"
-          class="form-text text-danger">Name should not begin with space
+          class="form-text text-danger">No spaces allowed at the beginning and end
         </small>
       </div>
     </div>
@@ -17,7 +17,7 @@
       <div class="col-sm-10">
         <input formControlName="description" class="form-control" />
         <small *ngIf="itemForm.get('description').dirty && itemForm.get('description').invalid"
-          class="form-text text-danger">Description should not begin with space
+          class="form-text text-danger">No spaces allowed at the beginning and end
         </small>
       </div>
     </div>
@@ -38,7 +38,7 @@
 
         <input 
         type="number" 
-        min="0"
+        min="1"
         step=any 
         oninput="validity.valid||(value='')" 
         formControlName="price" 

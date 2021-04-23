@@ -10,13 +10,17 @@ import { NgbModule } from "@ng-bootstrap/ng-bootstrap";
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { BrowserModule } from "@angular/platform-browser";
 import { HttpClientModule } from "@angular/common/http";
+import { ViewItemsComponent } from './view-items/view-items.component';
+import { UpdateItemComponent } from './update-item/update-item.component';
 
 @NgModule({
     declarations: [
        AdminRootComponent,
        ViewRidersComponent,
        ViewRidesComponent,
-       CreateItemComponent
+       CreateItemComponent,
+       ViewItemsComponent,
+       UpdateItemComponent
        
    ],
     imports: [
