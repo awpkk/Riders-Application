@@ -80,7 +80,7 @@ export class RideCreateComponent implements OnInit {
         // console.log("in ride create and create++++"+this.email)
         console.log("+++++" +this.rideForm.value.startdate);
         console.log(this.minDate + "%%%%%%%%")
-        this.router.navigate(['/afterlogin2/riderhome3/'+this.email])
+        this.router.navigate(['/afterlogin2/riderhome3/' + this.email + '/rhomeimages/' + this.email])
       })
 
   }

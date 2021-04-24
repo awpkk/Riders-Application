@@ -4,6 +4,7 @@ import { MatIconRegistry } from '@angular/material/icon';
 import { RideService } from 'src/services/ride.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { LoginComponent } from '../../login/login.component';
+import { RiderService } from 'src/services/rider.service';
 
 const THUMBUP_ICON = `
   <svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px">
@@ -27,6 +28,7 @@ export class RideJoinComponent implements OnInit {
     private rideService: RideService,
     public loginComponent: LoginComponent,
     private activatedroute: ActivatedRoute,
+    private riderService:RiderService,
     private router: Router) {
     iconRegistry.addSvgIconLiteral('thumbs-up', sanitizer.bypassSecurityTrustHtml(THUMBUP_ICON));
     this.activatedroute.params.subscribe(data => {
@@ -39,9 +41,11 @@ export class RideJoinComponent implements OnInit {
   private url: string = "http://localhost:3000/rides"
   RidesList: [];
   email: any;
+  rider:any;
 
   ngOnInit() {
   
+    this.findRiderByEmail();
   }
 
   getAllCreatedRides() {
@@ -73,7 +77,16 @@ export class RideJoinComponent implements OnInit {
       this.router.navigate(['/afterlogin2/riderhome3/'+this.email+'/ridejoin2/'+this.email])
       this.getAllCreatedRides();
   }
+
   isEmpty(obj) {
     return Object.keys(obj).length === 0;
+}
+
+findRiderByEmail(){
+this.riderService.findRider2(this.email)
+.subscribe((res: any) => {
+  console.log(res);
+  this.rider = res;
+  })
 }
 }

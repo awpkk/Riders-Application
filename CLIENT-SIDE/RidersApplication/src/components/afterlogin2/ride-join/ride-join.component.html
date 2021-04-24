@@ -1,3 +1,4 @@
+
 <div class="container">
   <h1 class="font-weight-bold text-center" id="heading">Welcome To Join Ride Page</h1>
   <h2 id="message" class="text-danger">{{message}}</h2>
@@ -29,11 +30,13 @@
           <div>
             <button class="btn btn-warning ">LIKE</button>&nbsp;&nbsp;
             <button class="btn btn-warning ">DISLIKE</button>
+            
             <mat-icon svgIcon="thumbs-up" aria-hidden="false" aria-label="Example thumbs up SVG icon"></mat-icon>
           </div>
         </div>
-        <button (click)="enroll(ride)" class="btn btn-dark" data-toggle="modal" data-target="#exampleModal">JOIN
+        <button (click)="enroll(ride)" [disabled]="rider.name==ride.creatorName"  class="btn btn-dark" data-toggle="modal" data-target="#exampleModal">JOIN
           RIDE!</button>
+          
       </div>
     </div>
   </div>
