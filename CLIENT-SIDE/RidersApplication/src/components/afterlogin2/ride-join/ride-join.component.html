@@ -18,23 +18,31 @@
         <div class="card-body p-3 mb-2 bg-light text-dark text-center">
           
           <div class="card-text">
-            <h4>Creator: {{ride.creatorName}}</h4>
+            <h4><b>Creator:</b> {{ride.creatorName}}</h4>
           </div>
           <div class="card-text">
-            <h4>Description: {{ride.description}}</h4>
+            <h4><b>Description:</b> {{ride.description}}</h4>
           </div>
           <div class="card-text">
-            <h4>Source: {{ride.source}}</h4>
+            <h4><b>Source: </b>{{ride.source}}</h4>
           </div>
           <div class="card-text">
-            <h4>Destination: {{ride.destination}}</h4>
+            <h4><b>Destination:</b> {{ride.destination}}</h4>
           </div>
           <div class="card-text">
-            <h4>Trip Start Date: {{ride.startdate}}</h4>
+            <h4><b>Trip Start Date:</b> {{ride.startdate}}</h4>
           </div>
           <div class="card-text">
-            <h4>Trip End Date: {{ride.enddate}}</h4>
-          </div><br />
+            <h4><b>Trip End Date:</b> {{ride.enddate}}</h4>
+          </div>
+          <div class="card-text ">
+            <h4> <b>Co-riders: </b></h4>
+          
+          <span *ngFor="let r of ride.riders">
+ 
+          <span class="card-text">
+            <h4>{{r.name}} </h4> </span>
+          </span></div>
           <div>
             <button class="btn btn-warning ">LIKE</button>&nbsp;&nbsp;
             <button class="btn btn-warning ">DISLIKE</button>
