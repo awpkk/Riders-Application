@@ -22,4 +22,10 @@ export class ItemService {
   deleteItem(id){
     return this.http.delete(`${this.host}/items/${id}`);
   }
+  findItemById(id){
+    return this.http.get(`${this.host}/items/${id}`);
+  }
+  editItem(id , newItem){
+    return this.http.put(`${this.host}/items/${id}`, newItem);
+  }
 }

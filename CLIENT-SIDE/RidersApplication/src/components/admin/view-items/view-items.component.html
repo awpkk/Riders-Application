@@ -1,28 +1,28 @@
 <div class="container">
-    <h2 id="heading">List of items</h2>
-    <div>
-      <table class="table table-striped">
-        <thead>
-          <tr class="table-danger">
-            <th scope="col">Name</th>
-            <th scope="col">Description</th>
-            <th scope="col">Price</th>
-            <th scope= "col">Id</th>
-            <th scope="col">Update</th>
-            <th scope="col">Delete</th>
-            
-          </tr>
-        </thead>
-        <tbody>
-          <tr *ngFor="let item of ItemsList" class="table-warning">
-            <td>{{item.name}}</td>
-            <td>{{item.description}}</td>
-            <td>{{item.price}}</td>
-            <td>{{item.id}}</td>
-            <td><button class="btn btn-warning" (click)="updateItem(item, item.id)">Update</button></td>
-            <td><button class="btn btn-danger" (click)="deleteItem(item.id)">Delete</button></td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
+  <h2 id="heading">List of items</h2>
+  <div>
+    <table class="table table-striped">
+      <thead>
+        <tr class="table-danger">
+          <th scope="col">Name</th>
+          <th scope="col">Description</th>
+          <th scope="col">Price</th>
+          <th scope="col">Update</th>
+          <th scope="col">Delete</th>
+
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of ItemsList" class="table-warning">
+          <td>{{item.name}}</td>
+          <td>{{item.description}}</td>
+          <td>{{item.price}}</td>
+          <td><button class="btn btn-warning" [routerLink]="['/admin/adminroot/updateItem/', item.id]">Update</button></td>
+
+          <!-- <td><button class="btn btn-warning" (click)="updateItem2(item.id)">Update</button></td> -->
+          <td><button class="btn btn-danger" (click)="deleteItem(item.id)">Delete</button></td>
+        </tr>
+      </tbody>
+    </table>
   </div>
+</div>

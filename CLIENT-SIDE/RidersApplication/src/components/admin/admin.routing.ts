@@ -31,9 +31,9 @@ const routes: Routes = [
             },
             //updateItem
             {
-                path: 'updateItem', // child route path
+                path: 'updateItem/:id', // child route path
                 component: UpdateItemComponent, // child route component that the router renders
-            }
+            },
 
         ],
     },

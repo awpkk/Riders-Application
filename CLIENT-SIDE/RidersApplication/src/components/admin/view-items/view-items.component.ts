@@ -1,5 +1,6 @@
 import { ItemService } from './../../../services/item.service';
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-view-items',
@@ -7,8 +8,9 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./view-items.component.css']
 })
 export class ViewItemsComponent implements OnInit {
+  itemId: string;
 
-  constructor(private itemService: ItemService) { }
+  constructor(private itemService: ItemService, private router: Router) { }
 
   ItemsList: any = {};
 

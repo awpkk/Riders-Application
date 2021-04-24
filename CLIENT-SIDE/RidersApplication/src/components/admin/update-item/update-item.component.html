@@ -25,9 +25,9 @@
     <div class="form-group row">
         <label class="col-sm-2 col-form-label font-weight-bold">Price</label>
         <div class="col-sm-10">
-            <!-- <input type="number" min="1" step=any oninput="validity.valid||(value='')" formControlName="price"
+            <input type="number" min="1" step=any oninput="validity.valid||(value='')" formControlName="price"
                 class="form-control">
-            <small *ngIf="itemForm.get('price').dirty && itemForm.get('price').invalid"
+            <!-- <small *ngIf="itemForm.get('price').dirty && itemForm.get('price').invalid"
                 class="form-text text-danger">Enter valid price please!
             </small> -->
 
@@ -36,7 +36,8 @@
 
     <div class="form-group row">
         <div class="col-sm-10 offset-sm-2">
-            <button [disabled]="itemForm.invalid" class="btn btn-success btn-lg btn-block" (click)="open(content)">Update Item
+            <button [disabled]="itemForm.invalid" class="btn btn-success btn-lg btn-block" (click)="open(content)"
+                (click)="update()">Update Item
             </button>
             <ng-template #content let-modal>
                 <div class="modal-header">
@@ -49,8 +50,8 @@
                     Item list updated!
                 </div>
                 <div class="modal-footer">
-                    <button type="button " class="btn btn-outline-dark btn-success"
-                        (click)="modal.close('Save click')">Done</button>
+                    <button type="button " class="btn btn-outline-dark btn-success" (click)="modal.close('Save click')"
+                        [routerLink]="['/admin/adminroot/viewItems']">Done</button>
                 </div>
             </ng-template>
         </div>
