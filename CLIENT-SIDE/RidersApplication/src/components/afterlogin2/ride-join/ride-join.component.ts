@@ -19,6 +19,7 @@ const THUMBUP_ICON = `
   styleUrls: ['./ride-join.component.css']
 })
 export class RideJoinComponent implements OnInit {
+  message: string;
 
   constructor(
     iconRegistry: MatIconRegistry,
@@ -46,8 +47,14 @@ export class RideJoinComponent implements OnInit {
   getAllCreatedRides() {
     this.rideService.getRides()
       .subscribe((res: any) => {
-        console.log(JSON.stringify(res));
+        console.log("in ride join , our rides+++"+JSON.stringify(res));
         this.RidesList = res;
+        console.log(this.isEmpty(this.RidesList));
+        if(this.isEmpty(this.RidesList)){
+          this.message="There are no rides available, You can also create one!";
+        }else{
+          this.message="";
+        }
       })
   }
   enroll(ride: any) {
@@ -66,4 +73,7 @@ export class RideJoinComponent implements OnInit {
       this.router.navigate(['/afterlogin2/riderhome3/'+this.email+'/ridejoin2/'+this.email])
       this.getAllCreatedRides();
   }
+  isEmpty(obj) {
+    return Object.keys(obj).length === 0;
+}
 }

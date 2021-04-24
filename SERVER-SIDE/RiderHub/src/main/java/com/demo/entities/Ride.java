@@ -19,6 +19,8 @@ public class Ride {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int id;
 
+	private String creatorName;
+
 	private String title;
 
 	private String description;
@@ -33,7 +35,7 @@ public class Ride {
 	// @JsonProperty("enddate")
 	private String enddate;
 
-	@ManyToMany(mappedBy = "rides",fetch = FetchType.LAZY)
+	@ManyToMany(mappedBy = "rides", fetch = FetchType.LAZY)
 	@JsonIgnoreProperties("rides")
 	private Set<Rider> riders = new HashSet<>();
 
@@ -43,6 +45,14 @@ public class Ride {
 
 	public void setId(int id) {
 		this.id = id;
+	}
+
+	public String getCreatorName() {
+		return creatorName;
+	}
+
+	public void setCreatorName(String creatorName) {
+		this.creatorName = creatorName;
 	}
 
 	public String getTitle() {
@@ -93,10 +103,6 @@ public class Ride {
 		this.enddate = enddate;
 	}
 
-	
-
-	
-
 	public Set<Rider> getRiders() {
 		return riders;
 	}
@@ -107,9 +113,9 @@ public class Ride {
 
 	@Override
 	public String toString() {
-		return "Ride [id=" + id + ", title=" + title + ", description=" + description + ", source=" + source
-				+ ", destination=" + destination + ", startdate=" + startdate + ", enddate=" + enddate + "]";
+		return "Ride [id=" + id + ", creatorName=" + creatorName + ", title=" + title + ", description=" + description
+				+ ", source=" + source + ", destination=" + destination + ", startdate=" + startdate + ", enddate="
+				+ enddate + ", riders=" + riders + "]";
 	}
-
 
 }

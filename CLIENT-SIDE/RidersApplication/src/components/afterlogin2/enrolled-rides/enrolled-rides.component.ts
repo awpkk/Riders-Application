@@ -10,6 +10,7 @@ import { RiderService } from 'src/services/rider.service';
 export class EnrolledRidesComponent implements OnInit {
 
   email: any;
+  message: string;
 
   constructor(private riderService: RiderService, private activatedroute: ActivatedRoute) {
     this.activatedroute.params.subscribe(data => {
@@ -40,7 +41,18 @@ export class EnrolledRidesComponent implements OnInit {
       .subscribe((res: any) => {
         console.log(res);
         this.EnrolledRidesList = res;
-        console.log("This is enrolled rides list++++"+this.EnrolledRidesList);
+        console.log("This is enrolled rides list++++" + this.EnrolledRidesList);
+        if (this.isEmpty(this.EnrolledRidesList)) {
+          this.message = "You have not Enrolled in any ride yet, You may Join a ride!";
+        } else {
+          this.message = "";
+        }
       })
+  }
+  isEmpty(obj) {
+    return Object.keys(obj).length === 0;
+  }
+  checklistempty() {
+    return !this.isEmpty(this.EnrolledRidesList);
   }
 }

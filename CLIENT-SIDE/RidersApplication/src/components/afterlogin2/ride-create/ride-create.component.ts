@@ -17,7 +17,8 @@ export class RideCreateComponent implements OnInit {
   email: any;
   maxday: number;
   minDate: { year: number; month: number; day: number; };
-  endDate: { year: number; month: number; day: number; };
+  // endDate: { year: number; month: number; day: number; };
+  tripEndDate: { year: number; month: number; day: number;  }
   
 
   //private url: string = "http://localhost:8787/rides/create"
@@ -54,6 +55,7 @@ export class RideCreateComponent implements OnInit {
  
   ngOnInit(): void {
     this.rideForm = new FormGroup({
+      creatorName: new FormControl("", Validators.required),
       title: new FormControl("", Validators.required),
       description: new FormControl("", Validators.required),
       source: new FormControl("", Validators.required),
@@ -63,15 +65,21 @@ export class RideCreateComponent implements OnInit {
     });
     this.maxday=this.rideForm.value.startdate.day;
     this.minDate={"year":this.currentYear,"month":this.currentMonth+1,"day":this.currentDay};
+    this.minDate={"year":this.currentYear,"month":this.currentMonth+1,"day":this.currentDay};
     //this.endDate={"year":this.currentYear,"month":this.currentMonth+1, "day":this.maxday};
-  
+    // this.tripEndDate={"year":this.currentYear,"month":this.currentMonth+1,"day":this.currentDay};
+
+    this.tripEndDate = this.rideForm.value.startdate;
+    
   }
 
   create() {
     this.rideService.saveRide(this.rideForm.value)
       .subscribe((res: any) => {
-        console.log(res);
-        console.log("in reide create and create++++"+this.email)
+        // console.log(res);
+        // console.log("in ride create and create++++"+this.email)
+        console.log("+++++" +this.rideForm.value.startdate);
+        console.log(this.minDate + "%%%%%%%%")
         this.router.navigate(['/afterlogin2/riderhome3/'+this.email])
       })
 

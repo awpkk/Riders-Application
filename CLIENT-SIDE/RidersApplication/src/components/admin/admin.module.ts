@@ -5,16 +5,31 @@ import { AdminRootComponent } from "./admin-root/admin-root.component";
 import { ViewRidersComponent } from "./view-riders/view-riders.component";
 import { ViewRidesComponent } from "./view-rides/view-rides.component";
 import routes from "./admin.routing";
+import { CreateItemComponent } from "./create-item/create-item.component";
+import { NgbModule } from "@ng-bootstrap/ng-bootstrap";
+import { FormsModule, ReactiveFormsModule } from "@angular/forms";
+import { BrowserModule } from "@angular/platform-browser";
+import { HttpClientModule } from "@angular/common/http";
+import { ViewItemsComponent } from './view-items/view-items.component';
+import { UpdateItemComponent } from './update-item/update-item.component';
 
 @NgModule({
     declarations: [
        AdminRootComponent,
        ViewRidersComponent,
-       ViewRidesComponent
+       ViewRidesComponent,
+       CreateItemComponent,
+       ViewItemsComponent,
+       UpdateItemComponent
+       
    ],
     imports: [
         CommonModule,
         RouterModule.forChild(routes),
+        NgbModule,
+        FormsModule,
+        ReactiveFormsModule,
+        HttpClientModule
   ],
     providers: []
 })
