@@ -42,10 +42,15 @@ export class RideJoinComponent implements OnInit {
   RidesList: [];
   email: any;
   rider:any;
+  alreadyride:any;
+  identity:any;
+  isEnrolled:boolean;
+  
 
   ngOnInit() {
   
     this.findRiderByEmail();
+    
   }
 
   getAllCreatedRides() {
@@ -87,6 +92,18 @@ this.riderService.findRider2(this.email)
 .subscribe((res: any) => {
   console.log(res);
   this.rider = res;
+this.alreadyride=res.rides;
+console.log("-----------------------------")
+//this.identity=this.alreadyride.id;
+console.log(res.rides[0])
+console.log("0000000000000000000000000000000000000000000000000")
+console.log(this.alreadyride[0].id)
+console.log(this.alreadyride)
+
+// this.alreadyride.forEach(element => {
+//   if(element.id==)
+  
+// });
   })
 }
 }

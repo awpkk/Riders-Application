@@ -45,3 +45,7 @@
 #head {
     background-color: blanchedalmond
 }
+a.nav-link{
+    cursor: pointer;
+    color: white;
+}
