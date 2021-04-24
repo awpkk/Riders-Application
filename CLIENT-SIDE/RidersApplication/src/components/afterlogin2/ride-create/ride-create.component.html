@@ -9,12 +9,14 @@
     <h1 id="head" class="text-center  font-weight-bold">CREATE NEW RIDE</h1><br />
 
     <div class="form-group row">
-      <label class="col-sm-2 col-form-label font-weight-bold">Creator</label>
+      <label class="col-sm-2 col-form-label font-weight-bold">Creator </label>
       
       <div class="col-sm-10">
-        <input formControlName="creatorName" class="form-control" />
-        <small *ngIf="rideForm.get('creatorName').dirty && rideForm.get('creatorName').invalid" class="form-text text-danger">Name
-          is required</small>
+        <!-- {{creatorName}} -->
+        
+        <input formControlName="creatorName" disabled=true value={{creatorName1}} class="form-control" />
+        <!-- <small *ngIf="rideForm.get('creatorName').dirty && rideForm.get('creatorName').invalid" class="form-text text-danger">Name
+          is required</small> -->
       </div>
     </div>
 

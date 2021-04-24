@@ -3,6 +3,7 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ModalDismissReasons, NgbDateStruct, NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { RideService } from 'src/services/ride.service';
+import { RiderService } from 'src/services/rider.service';
 
 @Component({
   selector: 'app-ride-create',
@@ -19,6 +20,8 @@ export class RideCreateComponent implements OnInit {
   minDate: { year: number; month: number; day: number; };
   // endDate: { year: number; month: number; day: number; };
   tripEndDate: { year: number; month: number; day: number;  }
+  rider: any;
+  creatorName1: String;
   
 
   //private url: string = "http://localhost:8787/rides/create"
@@ -42,7 +45,7 @@ export class RideCreateComponent implements OnInit {
     }
   }
 
-  constructor(private router: Router, private modalService: NgbModal, private rideService: RideService, private activatedroute: ActivatedRoute) {
+  constructor(private router: Router, private modalService: NgbModal, private riderService: RiderService, private rideService: RideService, private activatedroute: ActivatedRoute) {
     this.activatedroute.params.subscribe(data => {
       this.email = data.email;
     })
@@ -55,7 +58,7 @@ export class RideCreateComponent implements OnInit {
  
   ngOnInit(): void {
     this.rideForm = new FormGroup({
-      creatorName: new FormControl("", Validators.required),
+      creatorName: new FormControl(this.creatorName1),
       title: new FormControl("", Validators.required),
       description: new FormControl("", Validators.required),
       source: new FormControl("", Validators.required),
@@ -63,6 +66,10 @@ export class RideCreateComponent implements OnInit {
       startdate: new FormControl("", Validators.required),
       enddate: new FormControl("", Validators.required)
     });
+
+    this.findRiderByEmail();
+
+
     this.maxday=this.rideForm.value.startdate.day;
     this.minDate={"year":this.currentYear,"month":this.currentMonth+1,"day":this.currentDay};
     this.minDate={"year":this.currentYear,"month":this.currentMonth+1,"day":this.currentDay};
@@ -74,6 +81,7 @@ export class RideCreateComponent implements OnInit {
   }
 
   create() {
+    this.rideForm.value.creatorName=this.creatorName1;
     this.rideService.saveRide(this.rideForm.value)
       .subscribe((res: any) => {
         // console.log(res);
@@ -84,5 +92,16 @@ export class RideCreateComponent implements OnInit {
       })
 
   }
+  findRiderByEmail(){
+    this.riderService.findRider2(this.email)
+    .subscribe((res: any) => {
+      console.log(res);
+      this.rider = res;
+      this.creatorName1=res.name;
+      console.log(this.rider.name);
+      console.log(this.creatorName1);
+      })
+    }
+   
  
 }
