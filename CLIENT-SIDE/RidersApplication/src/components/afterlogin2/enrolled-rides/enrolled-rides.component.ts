@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
+import { RideService } from 'src/services/ride.service';
 import { RiderService } from 'src/services/rider.service';
 
 @Component({
@@ -12,7 +13,12 @@ export class EnrolledRidesComponent implements OnInit {
   email: any;
   message: string;
 
-  constructor(private riderService: RiderService, private activatedroute: ActivatedRoute) {
+  constructor(
+    private riderService: RiderService, 
+    private activatedroute: ActivatedRoute, 
+    private rideService: RideService,
+    private router: Router
+    ) {
     this.activatedroute.params.subscribe(data => {
       this.email = data.email;
       console.log(this.email);
@@ -54,5 +60,12 @@ export class EnrolledRidesComponent implements OnInit {
   }
   checklistempty() {
     return !this.isEmpty(this.EnrolledRidesList);
+  }
+  cancelRide(id){
+    this.rideService.removeRider(id, this.email)
+    .subscribe((res:any)=>{
+      console.log("Delete response = "+res);
+      this.router.navigate(['/afterlogin2/riderhome3/' + this.email + '/enrolledrides2/' + this.email])
+    })
   }
 }
