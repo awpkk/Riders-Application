@@ -73,6 +73,8 @@ export class RideJoinComponent implements OnInit {
       .subscribe((res: any) => {
         console.log(res);
         this.RidesList = res;
+        this.getAllCreatedRides();
+        this.findRiderByEmail()
       })
   }
   // goToHome() {
@@ -99,6 +101,7 @@ console.log(res.rides[0])
 console.log("0000000000000000000000000000000000000000000000000")
 console.log(this.alreadyride[0].id)
 console.log(this.alreadyride)
+
 
 // this.alreadyride.forEach(element => {
 //   if(element.id==)

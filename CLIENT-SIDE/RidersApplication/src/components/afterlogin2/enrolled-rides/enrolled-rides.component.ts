@@ -65,7 +65,8 @@ export class EnrolledRidesComponent implements OnInit {
     this.rideService.removeRider(id, this.email)
     .subscribe((res:any)=>{
       console.log("Delete response = "+res);
-      this.router.navigate(['/afterlogin2/riderhome3/' + this.email + '/enrolledrides2/' + this.email])
+      this.getEnrolledRides()
+ //this.router.navigate(['/afterlogin2/riderhome3/'+this.email+'/enrolledrides2/'+this.email])
     })
   }
 }
