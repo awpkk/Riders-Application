@@ -42,8 +42,6 @@ export class CreateItemComponent implements OnInit {
   ngOnInit(): void {
     this.itemForm = new FormGroup({
       name: new FormControl("", [Validators.required, Validators.pattern("^(?! )[A-Za-z0-9 ]*(?<! )$")]),
-
-
       description: new FormControl("", [Validators.required, Validators.pattern("^(?! )[A-Za-z0-9 ]*(?<! )$")]),
       price: new FormControl("", [Validators.required, Validators.pattern("[0-9]+(\.[0-9][0-9]?)?")])
     });

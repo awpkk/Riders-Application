@@ -60,9 +60,9 @@
     <div class="form-group row">
       <label class="col-sm-2 col-form-label font-weight-bold">Max number of co-riders allowed</label>
       <div class="col-sm-10">
-        <input formControlName="maxRiders" class="form-control" />
-        <!-- <small *ngIf="rideForm.get('maxRiders').dirty && rideForm.get('maxRiders').invalid"
-          class="form-text text-danger">Destination is required</small> -->
+        <input formControlName="maxRiders" class="form-control" type="number"/>
+        <small *ngIf="rideForm.get('maxRiders').dirty && rideForm.get('maxRiders').invalid"
+          class="form-text text-danger">Enter valid number</small>
       </div>
     </div>
 

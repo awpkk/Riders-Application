@@ -86,12 +86,14 @@
                 <input class="form-control" required placeholder="Password" type="password" formControlName="password"
                   id="inputPassword4">
                 <small *ngIf="myForm.get('password').dirty && myForm.get('password').invalid"
-                  class="form-text text-danger">Minimum 8 characters required for password</small>
+                  class="form-text text-danger">Minimum 8 characters required & no spaces allowed</small>
               </div>
             </div>
             <div class="form-group">
               <label for="inputAddress"><b>Address</b></label>
               <input formControlName="address" type="text" class="form-control" id="inputAddress" placeholder="Address">
+              <small *ngIf="myForm.get('address').dirty && myForm.get('address').invalid"
+                  class="form-text text-danger">Enter valid address</small>
             </div>
           </div>
         </div>
@@ -133,11 +135,15 @@
                 <label> <b>Vehicle number</b></label>
                 <input formControlName="vehicleNumber" required type="text" class="form-control" id="vehicleNumber"
                   placeholder="Vehicle Number">
+                  <small *ngIf="myForm.get('vehicleNumber').dirty && myForm.get('vehicleNumber').invalid"
+                  class="form-text text-danger">Enter valid vehicle number</small>
               </div>
               <div class="form-group row">
                 <label> <b>Vehicle model</b></label>
                 <input formControlName="vehicleModel" type="text" class="form-control" id="vehicleModel"
                   placeholder="Vehicle Model">
+                  <small *ngIf="myForm.get('vehicleModel').dirty && myForm.get('vehicleModel').invalid"
+                  class="form-text text-danger">Enter valid vehicle model</small>
               </div>
               <div class="form-group row">
                 <div>
