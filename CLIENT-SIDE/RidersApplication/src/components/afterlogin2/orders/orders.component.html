@@ -1,1 +1,18 @@
-<p>orders works!</p>
+<div class="container">
+    <h2 id="heading">Your purchases</h2>
+    <div class="row">
+        <h2 id="message" class="text-danger">{{message}}</h2>
+        <div class="col-md-3 mx-auto my-5" *ngFor="let item of PurchasedItemsList">
+            <div class="card text-white mb-2" [style.background]="getColor()">
+                <div class="card-header" id="cardheader">{{item.name}}</div>
+                <div class="card-body">
+                    <p class="card-text">Description = {{item.description}}</p>
+                    <p class="card-text">Price = Rs. {{item.price}}</p>
+                    <p class="card-text">ID ={{item.id}}</p>
+                    
+                </div>
+                
+            </div>
+        </div>
+    </div>
+</div>

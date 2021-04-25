@@ -59,5 +59,6 @@ public class ItemController {
 	public void purchaseItem(@PathVariable int id,@RequestBody String email) {
 		itemService.purchaseItem(id,email);
 	}
+	
 
 }

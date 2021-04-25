@@ -6,6 +6,7 @@ import { HomeComponent } from "./home/home.component";
 import { RideCreateComponent } from "./ride-create/ride-create.component";
 import { PurchaseItemComponent } from "./purchase-item/purchase-item.component";
 import { RhomeimagesComponent } from "./rhomeimages/rhomeimages.component";
+import { OrdersComponent } from "./orders/orders.component";
 
 // const routes: Routes = [
 //     { path: 'riderhome3/:email', component: HomeComponent },
@@ -37,6 +38,10 @@ const routes: Routes = [
       {
         path:  'rhomeimages/:email',
         component: RhomeimagesComponent ,
+      },
+      {
+        path:  'orders/:email',
+        component: OrdersComponent ,
       },
          
     ],

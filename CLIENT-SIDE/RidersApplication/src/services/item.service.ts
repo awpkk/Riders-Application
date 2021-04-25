@@ -31,4 +31,8 @@ export class ItemService {
   purchaseItem(id, email){
     return this.http.post(`${this.host}/items/purchase/${id}`, email); 
   }
+  getpurchasedItems(email){
+    return this.http.get(`${this.host}/riders/getPurchasedItems/${email}`)
+  }
+
 }

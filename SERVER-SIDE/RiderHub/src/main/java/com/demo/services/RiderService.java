@@ -8,6 +8,7 @@ import java.util.Set;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.demo.entities.Item;
 import com.demo.entities.Ride;
 import com.demo.entities.Rider;
 import com.demo.repositories.RiderRepository;
@@ -94,5 +95,21 @@ public class RiderService {
 
 		System.out.println("Rides list = " + receivedRidesList);
 		return receivedRidesList;
+	}
+	public List<Item> getItemsByEmail(String email) {
+		Rider rider = getRiderbyEmail(email);
+		Set<Item> receivedItems = rider.getItems();
+		System.out.println("Items set = " + receivedItems);
+
+		// Typecasting
+		// create an empty list
+		List<Item> receivedItemsList = new ArrayList<Item>();
+
+		// push each element in the set into the list
+		for (Item item : receivedItems)
+			receivedItemsList.add(item);
+
+		System.out.println("Items list = " + receivedItemsList);
+		return receivedItemsList;
 	}
 }

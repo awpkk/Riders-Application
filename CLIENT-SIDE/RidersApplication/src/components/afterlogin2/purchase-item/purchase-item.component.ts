@@ -37,8 +37,8 @@ export class PurchaseItemComponent implements OnInit {
       })
   }
   purchaseItem(itemID: any) {
-    console.log("in purcahse +++" + this.email);
-    console.log("in purchase item" + JSON.stringify(itemID))
+    // console.log("in purcahse +++" + this.email);
+    // console.log("in purchase item" + JSON.stringify(itemID))
     this.itemService.purchaseItem(itemID, this.email)
       .subscribe((res: any) => {
         console.log(res);

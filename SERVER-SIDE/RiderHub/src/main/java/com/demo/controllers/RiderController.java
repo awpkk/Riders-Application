@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.demo.entities.Item;
 import com.demo.entities.Ride;
 import com.demo.entities.Rider;
 
@@ -63,5 +64,8 @@ public class RiderController {
 	public List<Ride> getEnrolledRides(@PathVariable String email) {
 		return riderService.getRidesByEmail(email);
 	}
-	
+	@GetMapping("/getPurchasedItems/{email}")
+	public List<Item> getPurchasedItems(@PathVariable String email) {
+		return riderService.getItemsByEmail(email);
+	}
 }

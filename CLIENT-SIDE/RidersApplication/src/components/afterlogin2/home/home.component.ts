@@ -44,4 +44,7 @@ export class HomeComponent implements OnInit {
   loadhome() {
     this.router.navigate(['/afterlogin2/riderhome3/' + this.email + '/rhomeimages/' + this.email])
   }
+  viewOrders(){
+    this.router.navigate(['/afterlogin2/riderhome3/' + this.email + '/orders/' + this.email])
+  }
 }
