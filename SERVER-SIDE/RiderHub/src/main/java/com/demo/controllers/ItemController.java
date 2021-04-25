@@ -60,5 +60,11 @@ public class ItemController {
 		itemService.purchaseItem(id,email);
 	}
 	
+//	@PutMapping("/quantity/{id}")
+//	public Item quantityIncrease(@PathVariable int id,@RequestBody String email) {
+//		return itemService.quantityIncrease(id,email);
+//	}
+//	
+
 
 }

@@ -34,5 +34,8 @@ export class ItemService {
   getpurchasedItems(email){
     return this.http.get(`${this.host}/riders/getPurchasedItems/${email}`)
   }
+  // updateItemById(email){
+  //   return this.http.get(`${this.host}/`)
+  // }
 
 }

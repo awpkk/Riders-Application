@@ -107,7 +107,7 @@ public class Ride {
 	public String toString() {
 		return "Ride [id=" + id + ", creatorName=" + creatorName + ", title=" + title + ", description=" + description
 				+ ", source=" + source + ", destination=" + destination + ", maxRiders=" + maxRiders + ", startdate="
-				+ startdate + ", enddate=" + enddate + ", riders=" + riders + "]";
+				+ startdate + ", enddate=" + enddate + "]";
 	}
 
 	public int getMaxRiders() {

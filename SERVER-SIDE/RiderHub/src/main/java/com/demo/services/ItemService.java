@@ -62,4 +62,11 @@ public class ItemService {
 		System.out.println("Rider:" + rider);
 		System.out.println("Item:"+item);
 	}
+	
+//	public Item quantityIncrease(int id, String email) {
+//		Item item = findItemById(id);
+//		Rider rider = riderService.getRiderbyEmail(email);
+//		rider.getItems().
+//		
+//	}
 }

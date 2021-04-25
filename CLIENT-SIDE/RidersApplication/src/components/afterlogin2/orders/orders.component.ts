@@ -11,6 +11,10 @@ export class OrdersComponent implements OnInit {
   email: any;
   PurchasedItemsList: any;
   message: string;
+  item: any;
+  
+
+  
 
   constructor( private activatedroute: ActivatedRoute, private itemService: ItemService) {   this.activatedroute.params.subscribe(data => {
     this.email = data.email;
@@ -45,8 +49,7 @@ export class OrdersComponent implements OnInit {
   isEmpty(obj) {
     return Object.keys(obj).length === 0;
   }
-  // checklistempty() {
-  //   return this.isEmpty(this.PurchasedItemsList);
-  // }
+ 
+
 }
 
