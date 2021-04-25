@@ -7,15 +7,21 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.demo.entities.Item;
-import com.demo.entities.Ride;
+import com.demo.entities.Rider;
 import com.demo.repositories.ItemRepository;
-import com.demo.repositories.RideRepository;
+import com.demo.repositories.RiderRepository;
 
 @Service
 public class ItemService {
 
 	@Autowired
 	ItemRepository itemRepository;
+	
+	@Autowired
+	RiderService riderService;
+	
+	@Autowired
+	RiderRepository riderRepository;
 
 	public List<Item> getAllItems() {
 		return (List<Item>) itemRepository.findAll();
@@ -44,4 +50,16 @@ public class ItemService {
         itemRepository.save(item);
         return true;
     }
+	public void purchaseItem(int id, String email) {
+	Rider rider = riderService.getRiderbyEmail(email);
+	Item item = findItemById(id);
+//		Ride ride = rideService.getRidebyId(id);
+		
+//		System.out.println("Ride:" + ride);
+		rider.getItems().add(item);
+//		rider.getRides().add(ride);
+		riderRepository.save(rider);
+		System.out.println("Rider:" + rider);
+		System.out.println("Item:"+item);
+	}
 }

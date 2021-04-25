@@ -54,5 +54,10 @@ public class ItemController {
     public boolean editItem(@PathVariable int id,@RequestBody Item item) {
         return itemService.editItem(id, item);
     }
+	
+	@PostMapping("/purchase/{id}")
+	public void purchaseItem(@PathVariable int id,@RequestBody String email) {
+		itemService.purchaseItem(id,email);
+	}
 
 }

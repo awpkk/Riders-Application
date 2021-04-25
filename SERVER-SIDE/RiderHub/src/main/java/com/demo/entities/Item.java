@@ -1,9 +1,16 @@
 package com.demo.entities;
 
+import java.util.HashSet;
+import java.util.Set;
+
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
+
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @Entity
 	
@@ -19,7 +26,20 @@ public class Item {
 	
 	private float price;
 	
+	
+	@ManyToMany(mappedBy = "items", fetch = FetchType.LAZY)
+	@JsonIgnoreProperties("items")
+	private Set<Rider> riders = new HashSet<>();
+	
 //	private float discount;
+
+	public Set<Rider> getRiders() {
+		return riders;
+	}
+
+	public void setRiders(Set<Rider> riders) {
+		this.riders = riders;
+	}
 
 	public int getId() {
 		return id;
@@ -55,7 +75,9 @@ public class Item {
 
 	@Override
 	public String toString() {
-		return "Item [id=" + id + ", name=" + name + ", description=" + description + ", price=" + price + "]";
+		return "Item [id=" + id + ", name=" + name + ", description=" + description + ", price=" + price +"]";
 	}
+
+
 
 }

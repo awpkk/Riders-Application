@@ -11,6 +11,7 @@ import { PurchaseItemComponent } from "./purchase-item/purchase-item.component";
 import { RideCreateComponent } from "./ride-create/ride-create.component";
 import { RideJoinComponent } from "./ride-join/ride-join.component";
 import { RhomeimagesComponent } from './rhomeimages/rhomeimages.component';
+import { OrdersComponent } from './orders/orders.component';
 
 @NgModule({
     declarations: [
@@ -19,7 +20,8 @@ import { RhomeimagesComponent } from './rhomeimages/rhomeimages.component';
         RideJoinComponent,
         EnrolledRidesComponent,
         PurchaseItemComponent,
-        RhomeimagesComponent
+        RhomeimagesComponent,
+        OrdersComponent
     ],
     imports: [
         CommonModule,

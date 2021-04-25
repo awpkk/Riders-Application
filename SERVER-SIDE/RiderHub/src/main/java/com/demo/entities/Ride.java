@@ -40,6 +40,8 @@ public class Ride {
 	@ManyToMany(mappedBy = "rides", fetch = FetchType.LAZY)
 	@JsonIgnoreProperties("rides")
 	private Set<Rider> riders = new HashSet<>();
+	
+
 
 	public int getId() {
 		return id;

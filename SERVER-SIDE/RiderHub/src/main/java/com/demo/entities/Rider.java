@@ -47,6 +47,17 @@ public class Rider {
 	@JsonIgnoreProperties("riders")
 	Set<Ride> rides = new HashSet<>();
 
+	@ManyToMany(cascade = { CascadeType.ALL },fetch = FetchType.LAZY)
+	@JsonIgnoreProperties("riders")
+	Set<Item> items = new HashSet<>();
+	public Set<Item> getItems() {
+		return items;
+	}
+
+	public void setItems(Set<Item> items) {
+		this.items = items;
+	}
+
 	public int getId() {
 		return id;
 	}
@@ -141,8 +152,11 @@ public class Rider {
 	public String toString() {
 		return "Rider [id=" + id + ", name=" + name + ", phoneNumber=" + phoneNumber + ", gender=" + gender + ", email="
 				+ email + ", password=" + password + ", address=" + address + ", vehicleType=" + vehicleType
-				+ ", vehicleNumber=" + vehicleNumber + ", vehicleModel=" + vehicleModel +  "]";
+				+ ", vehicleNumber=" + vehicleNumber + ", vehicleModel=" + vehicleModel + ", rides=" + rides
+				+ ", items=" + items + "]";
 	}
+
+
 
 	
 

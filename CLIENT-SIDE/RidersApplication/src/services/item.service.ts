@@ -28,4 +28,7 @@ export class ItemService {
   editItem(id , newItem){
     return this.http.put(`${this.host}/items/${id}`, newItem);
   }
+  purchaseItem(id, email){
+    return this.http.post(`${this.host}/items/purchase/${id}`, email); 
+  }
 }
