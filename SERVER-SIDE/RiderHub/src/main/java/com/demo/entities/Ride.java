@@ -28,6 +28,8 @@ public class Ride {
 	private String source;
 
 	private String destination;
+	
+	private int maxRiders;
 
 	// @JsonProperty("startdate")
 	private String startdate;
@@ -99,6 +101,21 @@ public class Ride {
 		return enddate;
 	}
 
+	@Override
+	public String toString() {
+		return "Ride [id=" + id + ", creatorName=" + creatorName + ", title=" + title + ", description=" + description
+				+ ", source=" + source + ", destination=" + destination + ", maxRiders=" + maxRiders + ", startdate="
+				+ startdate + ", enddate=" + enddate + ", riders=" + riders + "]";
+	}
+
+	public int getMaxRiders() {
+		return maxRiders;
+	}
+
+	public void setMaxRiders(int maxRiders) {
+		this.maxRiders = maxRiders;
+	}
+
 	public void setEnddate(String enddate) {
 		this.enddate = enddate;
 	}
@@ -110,12 +127,4 @@ public class Ride {
 	public void setRiders(Set<Rider> riders) {
 		this.riders = riders;
 	}
-
-	@Override
-	public String toString() {
-		return "Ride [id=" + id + ", creatorName=" + creatorName + ", title=" + title + ", description=" + description
-				+ ", source=" + source + ", destination=" + destination + ", startdate=" + startdate + ", enddate="
-				+ enddate + ", riders=" + riders + "]";
-	}
-
 }

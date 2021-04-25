@@ -81,11 +81,11 @@ export class RideJoinComponent implements OnInit {
     goToJoin() {
       this.router.navigate(['/afterlogin2/riderhome3/'+this.email+'/ridejoin2/'+this.email])
       this.getAllCreatedRides();
-  }
+    }
 
   isEmpty(obj) {
     return Object.keys(obj).length === 0;
-}
+  }
 
 findRiderByEmail(){
 this.riderService.findRider2(this.email)

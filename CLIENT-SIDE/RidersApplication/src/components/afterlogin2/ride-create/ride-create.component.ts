@@ -63,6 +63,7 @@ export class RideCreateComponent implements OnInit {
       description: new FormControl("", Validators.required),
       source: new FormControl("", Validators.required),
       destination: new FormControl("", Validators.required),
+      maxRiders: new FormControl("", Validators.required),
       startdate: new FormControl("", Validators.required),
       enddate: new FormControl("", Validators.required)
     });
