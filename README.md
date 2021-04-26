@@ -1,4 +1,6 @@
-# Riders-Application
+# Riders-Application (RidersHub)
+
+Team: Harini Subramanian, Sakshi Patmase, Vagbhi Sharma, Awalpreet Kaur
 
 Link to project documentation: https://docs.google.com/document/d/1HDzwiakk-iK0f3a3efsEDlbYe1sjT6V18OcJHz2OoCw/edit?usp=sharing
 
