@@ -34,3 +34,7 @@ button.calendar, button.calendar:active {
     float: right;
     padding-top: 150px;
 }
+#msg{
+    text-align: center ;
+    color: red;
+}
