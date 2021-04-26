@@ -36,15 +36,15 @@ public class ItemService {
 		itemRepository.deleteById(id);
 	}
 
+	
 	public Item findItemById(int id) {
-
 		Optional<Item> optional = itemRepository.findById(id);
 		Item item = optional.orElse(null);
-
 		System.out.println(item);
-
 		return item;
 	}
+	
+	
 	public boolean editItem(int id, Item item) {
         item.setId(id);
         itemRepository.save(item);
