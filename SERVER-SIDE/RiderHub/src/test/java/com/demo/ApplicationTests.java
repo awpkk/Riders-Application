@@ -40,7 +40,8 @@ class ApplicationTests {
 	@Test
 	void shouldGetId() {
 		Item item = new Item();
-		item.setId(12);		
+		item.setId(12);	
+		
 		int itemId = item.getId();
 		Assertions.assertEquals(12, itemId);
 	}
@@ -49,6 +50,7 @@ class ApplicationTests {
 	@Test
 	public void shouldFindItem() {
 	    int id = 51; //Valid ID
+	    
 	    Item found = itemService.findItemById(id);
 	    Assertions.assertEquals(found.getId(), id);
 	 }
@@ -57,7 +59,8 @@ class ApplicationTests {
 	@Test
 	public void shouldNotFindItem() {
 	    int id = 10000; //Invalid ID
-	    Item found = itemService.findItemById(id);
+	    Item found = itemService.findItemById(id); //found = NULL
+	    
 	    Assertions.assertNull(found);
 	 }
 	
@@ -65,6 +68,7 @@ class ApplicationTests {
 	@Test
 	public void shouldFindItemByID() {
 		int id = 51; //Valid ID
+		
 		Item found = itemController.findItemById(id);
 		Assertions.assertEquals(found.getId(), id);
 	}

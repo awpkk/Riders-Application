@@ -20,10 +20,6 @@ export class LoginComponent {
         Validators.required,
         Validators.pattern("^[A-Za-z0-9._-]+@[a-z0-9.]+\.[a-z]{2,6}$")
       ]),
-      // password: new FormControl("", [
-      //   Validators.required,
-      //   Validators.pattern("(?=^.{8,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$")
-      // ])
       password: new FormControl("", [Validators.required, Validators.minLength(8)]),
     });
   }

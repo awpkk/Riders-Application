@@ -14,11 +14,11 @@ export class EnrolledRidesComponent implements OnInit {
   message: string;
 
   constructor(
-    private riderService: RiderService, 
-    private activatedroute: ActivatedRoute, 
+    private riderService: RiderService,
+    private activatedroute: ActivatedRoute,
     private rideService: RideService,
     private router: Router
-    ) {
+  ) {
     this.activatedroute.params.subscribe(data => {
       this.email = data.email;
       console.log(this.email);
@@ -61,12 +61,12 @@ export class EnrolledRidesComponent implements OnInit {
   checklistempty() {
     return !this.isEmpty(this.EnrolledRidesList);
   }
-  cancelRide(id){
+  cancelRide(id) {
     this.rideService.removeRider(id, this.email)
-    .subscribe((res:any)=>{
-      console.log("Delete response = "+res);
-      this.getEnrolledRides()
- //this.router.navigate(['/afterlogin2/riderhome3/'+this.email+'/enrolledrides2/'+this.email])
-    })
+      .subscribe((res: any) => {
+        console.log("Delete response = " + res);
+        this.getEnrolledRides()
+        //this.router.navigate(['/afterlogin2/riderhome3/'+this.email+'/enrolledrides2/'+this.email])
+      })
   }
 }
