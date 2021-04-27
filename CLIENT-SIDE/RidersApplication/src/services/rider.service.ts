@@ -6,16 +6,13 @@ import { Injectable } from '@angular/core';
 })
 export class RiderService {
   private data: any[] = [];
-
   public set riders(riders) {
     this.data = riders;
   }
   public get riders() {
     return this.data;
   }
-
   private host: string = "http://localhost:8787";
-
   constructor(private http: HttpClient) { }
 
   getRiders() {
@@ -29,11 +26,10 @@ export class RiderService {
     return this.http.post(`${this.host}/riders/validate/${email}`,password);
   }
   getRides(email) {
-    console.log("this is response for enrolled rides"+this.http.get(`${this.host}/riders/home/${email}`));
+    //console.log("this is response for enrolled rides"+this.http.get(`${this.host}/riders/home/${email}`));
     return this.http.get(`${this.host}/riders/getEnrolledRides/${email}`);
   }
   findRider2(email){
-    
     return this.http.get(`${this.host}/riders/home/${email}`);
   }
 }

@@ -21,14 +21,13 @@ const THUMBUP_ICON = `
 })
 export class RideJoinComponent implements OnInit {
   message: string;
-
   constructor(
     iconRegistry: MatIconRegistry,
     sanitizer: DomSanitizer,
     private rideService: RideService,
     public loginComponent: LoginComponent,
     private activatedroute: ActivatedRoute,
-    private riderService:RiderService,
+    private riderService: RiderService,
     private router: Router) {
     iconRegistry.addSvgIconLiteral('thumbs-up', sanitizer.bypassSecurityTrustHtml(THUMBUP_ICON));
     this.activatedroute.params.subscribe(data => {
@@ -37,76 +36,62 @@ export class RideJoinComponent implements OnInit {
     })
     this.getAllCreatedRides();
   }
-
   private url: string = "http://localhost:3000/rides"
   RidesList: [];
   email: any;
-  rider:any;
-  alreadyride:any;
-  identity:any;
-  isEnrolled:boolean;
-  
-
+  rider: any;
+  alreadyride: any;
+  identity: any;
+  isEnrolled: boolean;
   ngOnInit() {
-  
     this.findRiderByEmail();
-    
   }
-
   getAllCreatedRides() {
     this.rideService.getRides()
       .subscribe((res: any) => {
-        console.log("in ride join , our rides+++"+JSON.stringify(res));
+        //console.log("in ride join , our rides+++" + JSON.stringify(res));
         this.RidesList = res;
-        console.log(this.isEmpty(this.RidesList));
-        if(this.isEmpty(this.RidesList)){
-          this.message="There are no rides available, You can also create one!";
-        }else{
-          this.message="";
+        //console.log(this.isEmpty(this.RidesList));
+        if (this.isEmpty(this.RidesList)) {
+          this.message = "There are no rides available, You can also create one!";
+        } else {
+          this.message = "";
         }
       })
   }
   enroll(ride: any) {
-    console.log("in enroll +++" + this.email);
-    console.log("in enroll ride++++" + JSON.stringify(ride))
+    //console.log("in enroll +++" + this.email);
+    //console.log("in enroll ride++++" + JSON.stringify(ride))
     this.rideService.enrollRide(ride.id, this.email)
       .subscribe((res: any) => {
-        console.log(res);
+        //console.log(res);
         this.RidesList = res;
         this.getAllCreatedRides();
         this.findRiderByEmail()
       })
   }
-  // goToHome() {
-  //   this.router.navigate(['/afterlogin2/riderhome3/'+ this.email])
-  // }
-    goToJoin() {
-      this.router.navigate(['/afterlogin2/riderhome3/'+this.email+'/ridejoin2/'+this.email])
-      this.getAllCreatedRides();
-    }
-
+  goToJoin() {
+    this.router.navigate(['/afterlogin2/riderhome3/' + this.email + '/ridejoin2/' + this.email])
+    this.getAllCreatedRides();
+  }
   isEmpty(obj) {
     return Object.keys(obj).length === 0;
   }
-
-findRiderByEmail(){
-this.riderService.findRider2(this.email)
-.subscribe((res: any) => {
-  console.log(res);
-  this.rider = res;
-this.alreadyride=res.rides;
-console.log("-----------------------------")
-//this.identity=this.alreadyride.id;
-console.log(res.rides[0])
-console.log("0000000000000000000000000000000000000000000000000")
-console.log(this.alreadyride[0].id)
-console.log(this.alreadyride)
-
-
-// this.alreadyride.forEach(element => {
-//   if(element.id==)
-  
-// });
-  })
-}
+  findRiderByEmail() {
+    this.riderService.findRider2(this.email)
+      .subscribe((res: any) => {
+        //console.log(res);
+        this.rider = res;
+        this.alreadyride = res.rides;
+        // console.log("-----------------------------")
+        //this.identity=this.alreadyride.id;
+        // console.log(res.rides[0])
+        // console.log("0000000000000000000000000000000000000000000000000")
+        // console.log(this.alreadyride[0].id)
+        // console.log(this.alreadyride)
+        // this.alreadyride.forEach(element => {
+        //   if(element.id==)
+        // });
+      })
+  }
 }

@@ -8,12 +8,6 @@ import { PurchaseItemComponent } from "./purchase-item/purchase-item.component";
 import { RhomeimagesComponent } from "./rhomeimages/rhomeimages.component";
 import { OrdersComponent } from "./orders/orders.component";
 
-// const routes: Routes = [
-//     { path: 'riderhome3/:email', component: HomeComponent },
-//     { path: 'ridecreate2/:email', component:RideCreateComponent}
-//     //{ path: '**', pathMatch: 'full', redirectTo: "riderhome/:email" }
-//   ];
-//   export default routes;
 const routes: Routes = [
   {
     path: 'riderhome3/:email',
@@ -28,23 +22,22 @@ const routes: Routes = [
         component: RideJoinComponent,
       },
       {
-        path:  'enrolledrides2/:email',
+        path: 'enrolledrides2/:email',
         component: EnrolledRidesComponent,
       },
       {
-        path:  'purchaseitem2/:email',
-        component: PurchaseItemComponent ,
+        path: 'purchaseitem2/:email',
+        component: PurchaseItemComponent,
       },
       {
-        path:  'rhomeimages/:email',
-        component: RhomeimagesComponent ,
+        path: 'rhomeimages/:email',
+        component: RhomeimagesComponent,
       },
       {
-        path:  'orders/:email',
-        component: OrdersComponent ,
+        path: 'orders/:email',
+        component: OrdersComponent,
       },
-         
     ],
   },
 ];
-  export default routes;
+export default routes;
