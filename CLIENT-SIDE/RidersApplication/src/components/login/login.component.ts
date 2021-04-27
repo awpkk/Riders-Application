@@ -13,7 +13,6 @@ import { NavigationExtras } from "@angular/router";
 export class LoginComponent {
   myForm: FormGroup;
   errorMessage: String;
-
   constructor(private riderService: RiderService, private router: Router) {
     this.myForm = new FormGroup({
       email: new FormControl("", [
@@ -23,11 +22,10 @@ export class LoginComponent {
       password: new FormControl("", [Validators.required, Validators.minLength(8)]),
     });
   }
-
   getLogin() {
     this.riderService.findRider(this.myForm.value.email, this.myForm.value.password)
       .subscribe((res: any) => {
-          console.log(res);
+          // console.log(res);
         if (res == 1) {
           this.errorMessage = "You do not have an account";
         } else if (res == 2) {
