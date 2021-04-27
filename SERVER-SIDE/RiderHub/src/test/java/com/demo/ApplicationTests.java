@@ -14,15 +14,18 @@ import org.junit.Before;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.util.Assert;
 
 @SpringBootTest
 class ApplicationTests {
 	
+	@Autowired
 	ItemService itemService;
+	
+	@Autowired
 	ItemController itemController;
-	ItemRepository itemRepository;
 	
 	@Before // before each testcase
 	public void beforeEachTestCase1(){
@@ -33,13 +36,44 @@ class ApplicationTests {
 	void contextLoads() {
 	}
 	
-	@SuppressWarnings("deprecation")
+	//Testing entity
 	@Test
 	void shouldGetId() {
 		Item item = new Item();
-		item.setId(12);
+		item.setId(12);		
 		int itemId = item.getId();
 		Assertions.assertEquals(12, itemId);
 	}
 	
+	//Testing service
+	@Test
+	public void shouldFindItem() {
+	    int id = 51; //Valid ID
+	    Item found = itemService.findItemById(id);
+	    Assertions.assertEquals(found.getId(), id);
+	 }
+	
+	//Testing service
+	@Test
+	public void shouldNotFindItem() {
+	    int id = 10000; //Invalid ID
+	    Item found = itemService.findItemById(id);
+	    Assertions.assertNull(found);
+	 }
+	
+	//Testing controller
+	@Test
+	public void shouldFindItemByID() {
+		int id = 51; //Valid ID
+		Item found = itemController.findItemById(id);
+		Assertions.assertEquals(found.getId(), id);
+	}
+	
+	//Testing controller
+	@Test
+	public void shouldNotFindItemByID() {
+		int id = 10000; //Invalid ID
+		Item found = itemController.findItemById(id);
+		Assertions.assertNull(found);
+	}
 }
