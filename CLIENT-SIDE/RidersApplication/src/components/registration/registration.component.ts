@@ -19,7 +19,19 @@ export class RegistrationComponent implements OnInit {
     this.myForm = new FormGroup({
       email: new FormControl("", [Validators.required,
       Validators.pattern("^(?! )[A-Za-z0-9._-]+@[a-z0-9.]+\.[a-z]{2,6}$")]),
+<<<<<<< HEAD
       password: new FormControl("", [Validators.required, Validators.minLength(8), Validators.pattern("^(?! )")]),
+=======
+
+      ///^[ A-Za-z0-9_@./#&+-]*$/
+
+      password: new FormControl("", [Validators.required, Validators.minLength(8), Validators.pattern("^(?! )[ A-Za-z0-9_@./#&+-]*$")]),
+      // password: new FormControl("", [
+      //   Validators.required,
+      //   Validators.pattern("(?=^.{8,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$")
+      // ]),
+
+>>>>>>> e1a25e121b12dcf074834b079eefe1fe42886f73
       name: new FormControl("", [Validators.required, Validators.pattern("^(?! )[a-zA-Z ]{2,30}$")]),
       phoneNumber: new FormControl("", [Validators.required, Validators.pattern("^(?! )[0-9]{10,14}$")]),
       gender: new FormControl(""),

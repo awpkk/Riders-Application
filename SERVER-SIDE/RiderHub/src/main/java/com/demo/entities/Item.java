@@ -33,6 +33,19 @@ public class Item {
 	
 //	private float discount;
 
+	public Item(int i, String string, String string2, int j, Set<Rider> hash_Set) {
+		// TODO Auto-generated constructor stub
+		id = i;
+		name = string;
+		description = string2;
+		price = j;
+		riders = hash_Set;
+	}
+
+	public Item() {
+		// TODO Auto-generated constructor stub
+	}
+
 	public Set<Rider> getRiders() {
 		return riders;
 	}
