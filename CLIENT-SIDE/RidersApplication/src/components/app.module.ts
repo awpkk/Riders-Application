@@ -1,4 +1,3 @@
-
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CommonModule } from "@angular/common";
 import { HttpClientModule } from "@angular/common/http";
@@ -36,30 +35,5 @@ import routes from './app.routing';
   ]
 })
 export default class AppModule { }
-
-
-
-
-
-
-
-
-// const routes: Routes = [
-//  { path: 'login', component: LoginComponent },
-//    { path: 'home', component: HomepageComponent },
-// //   { path: 'riderhome/:email', component: HomeComponent },
-//    { path: 'registration', component: RegistrationComponent },
-// //   { path: 'ride-create/:email', component: RideCreateComponent },
-// //   { path: 'ride-join/:email', component: RideJoinComponent },
-// //  { path: 'purchase-item', component: PurchaseItemComponent },
-// //   { path: 'admin-root', component: AdminRootComponent },
-// //   { path: 'view-rides', component: ViewRidesComponent },
-// //   { path: 'view-riders', component: ViewRidersComponent },
-// //   { path: 'enrolled-rides/:email', component: EnrolledRidesComponent },
-// //   { path: '**', pathMatch: 'full', redirectTo: "home" }
-// ];
-// // const homeroutes: Routes = [
-// //   { path: 'purchase-item', component: PurchaseItemComponent },
-// // ]
 
 

@@ -5,11 +5,8 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class ItemService {
-
  // private data: any[] = [];
-
   private host: string = "http://localhost:8787";
-
   constructor(private http: HttpClient) { }
 
   getItems() {
@@ -34,8 +31,4 @@ export class ItemService {
   getpurchasedItems(email){
     return this.http.get(`${this.host}/riders/getPurchasedItems/${email}`)
   }
-  // updateItemById(email){
-  //   return this.http.get(`${this.host}/`)
-  // }
-
 }
