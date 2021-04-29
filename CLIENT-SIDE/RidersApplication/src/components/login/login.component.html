@@ -1,20 +1,16 @@
 <div class="container col-md-11 offset-md-1 d-flex justify-content-center ">
-    
-    
     <div id="main" class="row justify-content-center align-items-center" id="row">
-        
         <div class="col align-items-center" id="col">
-            
             <br />
             <br />
-            <div id = "body">
+            <div id="body">
                 <h1 id="heading">LOGIN TO CONTINUE</h1>
             </div>
             <br />
             <form (ngSubmit)="getLogin()" [formGroup]="myForm">
-                <div >
+                <div>
                     <label for="validationCustomUsername" class="form-label font-weight-bold">Email</label>
-                    <div >
+                    <div>
                         <input formControlName="email" class="form-control" placeholder="name@example.com" />
                         <small *ngIf="myForm.get('email').dirty && myForm.get('email').invalid"
                             class="form-text text-danger">Email-id is invalid
@@ -22,31 +18,26 @@
                     </div>
                 </div>
                 <br>
-                <div >
+                <div>
                     <label for="validationCustomPassword" class="form-label font-weight-bold">Password</label>
-                    <div >
-                        <input formControlName="password" type = "password" class="form-control" placeholder="password" />
+                    <div>
+                        <input formControlName="password" type="password" class="form-control" placeholder="password" />
                         <small *ngIf="myForm.get('password').dirty && myForm.get('password').invalid"
                             class="form-text text-danger">Password is invalid</small>
                     </div>
                     <br />
                     <div class="form-group row">
                         <div>
-                            <button  [disabled]="myForm.invalid" type="submit" class="btn  btn-block btn-success font-weight-bold">Login</button>
+                            <button [disabled]="myForm.invalid" type="submit"
+                                class="btn  btn-block btn-success font-weight-bold">Login</button>
                         </div>
                     </div>
                 </div>
             </form>
         </div>
-        
-        <p id="error">{{errorMessage}}</p> 
-        <p class="h6" id="reg">New to RidersHub! <a  [routerLink]="['/','registration']">Register here</a> </p>
-        <p class="h6" id="reg">Go back to <a  [routerLink]="['/','home']">Home </a> </p>
-        
+        <p id="error">{{errorMessage}}</p>
+        <p class="h6" id="reg">New to RidersHub! <a [routerLink]="['/','registration']">Register here</a> </p>
+        <p class="h6" id="reg">Go back to <a [routerLink]="['/','home']">Home </a> </p>
     </div>
-    <div><img id="bike" src="../assets/bike.gif"/></div>
-   
+    <div><img id="bike" src="../assets/bike.gif" /></div>
 </div>
-
-    
-    <!-- [routerLink]="['/','home']" -->

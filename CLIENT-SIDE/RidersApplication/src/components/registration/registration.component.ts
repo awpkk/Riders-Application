@@ -14,39 +14,35 @@ export class RegistrationComponent implements OnInit {
   myForm: FormGroup;
   closeResult = '';
   constructor(private riderService: RiderService, private router: Router, private modalService: NgbModal) {
-
   }
   ngOnInit(): void {
     this.myForm = new FormGroup({
       email: new FormControl("", [Validators.required,
       Validators.pattern("^(?! )[A-Za-z0-9._-]+@[a-z0-9.]+\.[a-z]{2,6}$")]),
 
-      ///^[ A-Za-z0-9_@./#&+-]*$/
-
-      password: new FormControl("", [Validators.required, Validators.minLength(8), Validators.pattern("^(?! )[ A-Za-z0-9_@./#&+-]*$")]),
+      password: new FormControl("", [Validators.required, Validators.minLength(8), Validators.pattern("^(?! )[A-Za-z0-9_@./#&+-]*$")]),
       // password: new FormControl("", [
       //   Validators.required,
       //   Validators.pattern("(?=^.{8,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$")
       // ]),
 
-      name: new FormControl("", [Validators.required, Validators.pattern("^(?! )[a-zA-Z ]{2,30}$")]),
+      name: new FormControl("", [Validators.required, Validators.pattern("^(?! )[a-zA-Z_ ]{2,30}$")]),
+     
       phoneNumber: new FormControl("", [Validators.required, Validators.pattern("^(?! )[0-9]{10,14}$")]),
       gender: new FormControl(""),
       vehicleType: new FormControl(""),
       vehicleNumber: new FormControl("", Validators.pattern("^(?! )[a-zA-Z0-9 _@./#,&+-]*$")),
       vehicleModel: new FormControl("", Validators.pattern("^(?! )[a-zA-Z0-9 _@./#,&+-]*$")),
-      // address: new FormControl("", Validators.pattern("^(?! )[a-zA-Z ]{2,30}$"))
       address: new FormControl("", Validators.pattern("^(?! )[a-zA-Z0-9 _@./#,&+-]*$"))
     });
   }
   getRegister() {
     this.riderService.saveRider(this.myForm.value)
       .subscribe((res: any) => {
-        console.log(res);
+        // console.log(res);
         this.router.navigate(["home"]);
       })
   }
-
   open(content) {
     this.modalService.open(content, { ariaLabelledBy: 'modal-basic-title' }).result.then((result) => {
       this.closeResult = `Closed with: ${result}`;

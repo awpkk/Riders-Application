@@ -6,12 +6,9 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./homepage.component.css']
 })
 export class HomepageComponent implements OnInit {
-
   constructor() { }
-
   ngOnInit(): void {
   }
-
   scroll(sectionId) {
     let element = document.getElementById(sectionId);
     if (!!element) {

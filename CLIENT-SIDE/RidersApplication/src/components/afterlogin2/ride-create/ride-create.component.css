@@ -1,7 +1,6 @@
 input.ng-invalid{
     box-shadow: 0 0 3px red;
 }
-
 input.ng-valid{
     box-shadow: 0 0 3px green;
 }
@@ -12,15 +11,12 @@ button.calendar, button.calendar:active {
     background-size: 23px;
     background-position: center;
   }
-
   #cont{
       width:60%;
   }
   #head{
       padding:20px 0px 0px 50px;
-     
-        color:rgb(243, 123, 10);
-    
+      color:rgb(243, 123, 10);
   }
   #left{
       width:200px;
