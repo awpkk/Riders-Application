@@ -33,9 +33,10 @@ export class RegistrationComponent implements OnInit {
       phoneNumber: new FormControl("", [Validators.required, Validators.pattern("^(?! )[0-9]{10,14}$")]),
       gender: new FormControl(""),
       vehicleType: new FormControl(""),
-      vehicleNumber: new FormControl("", Validators.pattern("^(?! )[a-zA-Z ]{2,30}$")),
-      vehicleModel: new FormControl("", Validators.pattern("^(?! )[a-zA-Z ]{2,30}$")),
-      address: new FormControl("", Validators.pattern("^(?! )[a-zA-Z ]{2,30}$"))
+      vehicleNumber: new FormControl("", Validators.pattern("^(?! )[a-zA-Z0-9 _@./#,&+-]*$")),
+      vehicleModel: new FormControl("", Validators.pattern("^(?! )[a-zA-Z0-9 _@./#,&+-]*$")),
+      // address: new FormControl("", Validators.pattern("^(?! )[a-zA-Z ]{2,30}$"))
+      address: new FormControl("", Validators.pattern("^(?! )[a-zA-Z0-9 _@./#,&+-]*$"))
     });
   }
   getRegister() {

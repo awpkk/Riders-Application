@@ -67,11 +67,17 @@ export class RideCreateComponent implements OnInit {
       creatorName: new FormControl(this.creatorName1),
       title: new FormControl("", [Validators.required, Validators.pattern("^(?! )[a-zA-Z0-9(?! )]*$")]),
       description: new FormControl("", [Validators.required, Validators.pattern("^(?! )[a-zA-Z0-9(?! )]*$")]),
-      source: new FormControl("", [Validators.required, Validators.pattern("^(?! )[a-zA-Z0-9(?! )]*$")]),
-      destination: new FormControl("", [Validators.required, Validators.pattern("^(?! )[a-zA-Z0-9(?! )]*$")]),
+      // source: new FormControl("", [Validators.required, Validators.pattern("^(?! )[a-zA-Z0-9(?! )]*$")]),
+      // destination: new FormControl("", [Validators.required, Validators.pattern("^(?! )[a-zA-Z0-9(?! )]*$")]),
+
+      source: new FormControl("", [Validators.required, Validators.pattern("^(?! )[a-zA-Z0-9 _@./#,&+-]*$")]),
+      destination: new FormControl("", [Validators.required, Validators.pattern("^(?! )[a-zA-Z0-9 _@./#,&+-]*$")]),
+
       maxRiders: new FormControl("", [Validators.required, Validators.min(2)]),
       startdate: new FormControl("", Validators.required),
       enddate: new FormControl("", Validators.required)
+
+      //Validators.pattern("^(?! )[a-zA-Z0-9 _@./#,&+-]*$")
     });
     this.findRiderByEmail();
     this.maxday = this.rideForm.value.startdate.day;
