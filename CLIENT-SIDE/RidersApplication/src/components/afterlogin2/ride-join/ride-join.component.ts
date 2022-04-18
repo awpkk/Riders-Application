@@ -31,7 +31,6 @@ export class RideJoinComponent implements OnInit {
     private router: Router) {
     iconRegistry.addSvgIconLiteral('thumbs-up', sanitizer.bypassSecurityTrustHtml(THUMBUP_ICON));
     this.activatedroute.params.subscribe(data => {
-      //console.log(data);
       this.email = data.email;
     })
     this.getAllCreatedRides();
@@ -49,9 +48,7 @@ export class RideJoinComponent implements OnInit {
   getAllCreatedRides() {
     this.rideService.getRides()
       .subscribe((res: any) => {
-        //console.log("in ride join , our rides+++" + JSON.stringify(res));
         this.RidesList = res;
-        //console.log(this.isEmpty(this.RidesList));
         if (this.isEmpty(this.RidesList)) {
           this.message = "There are no rides available, You can also create one!";
         } else {
@@ -60,11 +57,8 @@ export class RideJoinComponent implements OnInit {
       })
   }
   enroll(ride: any) {
-    //console.log("in enroll +++" + this.email);
-    //console.log("in enroll ride++++" + JSON.stringify(ride))
     this.rideService.enrollRide(ride.id, this.email)
       .subscribe((res: any) => {
-        //console.log(res);
         this.RidesList = res;
         this.getAllCreatedRides();
         this.findRiderByEmail()
@@ -83,15 +77,6 @@ export class RideJoinComponent implements OnInit {
         //console.log(res);
         this.rider = res;
         this.alreadyride = res.rides;
-        // console.log("-----------------------------")
-        //this.identity=this.alreadyride.id;
-        // console.log(res.rides[0])
-        // console.log("0000000000000000000000000000000000000000000000000")
-        // console.log(this.alreadyride[0].id)
-        // console.log(this.alreadyride)
-        // this.alreadyride.forEach(element => {
-        //   if(element.id==)
-        // });
       })
   }
 }

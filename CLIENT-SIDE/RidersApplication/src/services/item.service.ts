@@ -5,7 +5,6 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class ItemService {
- // private data: any[] = [];
   private host: string = "http://localhost:8787";
   constructor(private http: HttpClient) { }
 
@@ -13,7 +12,6 @@ export class ItemService {
     return this.http.get(`${this.host}/items/all`);
   }
   saveItem(items: any) {
-    // console.log("in save ride" + JSON.stringify(rides));
     return this.http.post(`${this.host}/items/create`, items);
   }
   deleteItem(id){

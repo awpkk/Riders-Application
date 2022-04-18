@@ -17,8 +17,6 @@ export class RideService {
     let ourenddate: any;
     ourstartdate = rides.startdate.year + "-" + rides.startdate.month + "-" + rides.startdate.day
     ourenddate = rides.enddate.year + "-" + rides.enddate.month + "-" + rides.enddate.day
-    // console.log(ourstartdate)
-    // console.log(ourenddate)
     rides.remove = function (startdate) {
       delete rides.startdate
     }
@@ -33,7 +31,6 @@ export class RideService {
   enrollRide(id: number, email: any) {
     return this.http.post(`${this.host}/riders/enroll/${email}`, id);
   }
-  //@PutMapping("/removeRider/{email}")
   removeRider(id: number, email: any) {
     return this.http.put(`${this.host}/rides/removeRider/${email}`, id);
   }

@@ -1,14 +1,6 @@
 #admin-root{
     margin: 10px;
 }
-/* #heading{
-    text-align: center;
-    font-style: oblique;
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-    font-weight:bolder;
-    font-size: xx-large;
-    color: darkmagenta;
-} */
 #btn1{
     font-size: 20px;
     color: turquoise;
@@ -47,7 +39,3 @@
 .container{
     margin-top: 20px;
 }
-
-/* #color{
-    background-color: rgb(177, 198, 236)
-} */

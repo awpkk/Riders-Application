@@ -25,21 +25,9 @@ export class EnrolledRidesComponent implements OnInit {
     })
   }
 
-  //  private url:string = "http://localhost:3000/EnrolledRides"
-
   EnrolledRidesList: any = {};
 
   ngOnInit() {
-    //  fetch(this.url, {
-    //    method: "get"
-    //  })
-    //  .then((response:any)=>{
-    //    return response.json();
-    //  })
-    //  .then((data:any)=>{
-    //    console.log(data);
-    //    this.EnrolledRidesList = data;
-    //  });
     this.getEnrolledRides();
   }
   getEnrolledRides() {
@@ -66,7 +54,6 @@ export class EnrolledRidesComponent implements OnInit {
       .subscribe((res: any) => {
         console.log("Delete response = " + res);
         this.getEnrolledRides()
-        //this.router.navigate(['/afterlogin2/riderhome3/'+this.email+'/enrolledrides2/'+this.email])
       })
   }
 }

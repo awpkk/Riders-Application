@@ -64,16 +64,6 @@ export class CreateItemComponent implements OnInit {
         this.router.navigate(['/admin/adminroot']);
       })
   }
-  // message(e){
-  //   console.log("e = ")
-  //   console.log(e)
-  //   if(e.keyboardEvent.key.equals("-")){
-      
-  //   console.log("Key pressed!")
-  //    alert("You pressed a key inside the input field");
-  //   }
-
-  // }
 }
 
 

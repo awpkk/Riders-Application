@@ -34,8 +34,6 @@ export class RideCreateComponent implements OnInit {
   sDate: any;
   isCheck: boolean;
   message: string;
-  //private url: string = "http://localhost:8787/rides/create"
-  //ridersList: any = {};
   open(content) {
     this.modalService.open(content, { ariaLabelledBy: 'modal-basic-title' }).result.then((result) => {
       this.closeResult = `Closed with: ${result}`;
@@ -61,23 +59,16 @@ export class RideCreateComponent implements OnInit {
   public currentYear: number = this.today.getFullYear();
   public currentMonth: number = this.today.getMonth();
   public currentDay: number = this.today.getDate();
-  //public minDate: Object = new Date(this.currentYear, this.currentMonth, this.currentDay);
   ngOnInit(): void {
     this.rideForm = new FormGroup({
       creatorName: new FormControl(this.creatorName1),
       title: new FormControl("", [Validators.required, Validators.pattern("^(?! )[a-zA-Z0-9(?! )]*$")]),
       description: new FormControl("", [Validators.required, Validators.pattern("^(?! )[a-zA-Z0-9(?! )]*$")]),
-      // source: new FormControl("", [Validators.required, Validators.pattern("^(?! )[a-zA-Z0-9(?! )]*$")]),
-      // destination: new FormControl("", [Validators.required, Validators.pattern("^(?! )[a-zA-Z0-9(?! )]*$")]),
-
       source: new FormControl("", [Validators.required, Validators.pattern("^(?! )[a-zA-Z0-9 _@./#,&+-]*$")]),
       destination: new FormControl("", [Validators.required, Validators.pattern("^(?! )[a-zA-Z0-9 _@./#,&+-]*$")]),
-
       maxRiders: new FormControl("", [Validators.required, Validators.min(2)]),
       startdate: new FormControl("", Validators.required),
       enddate: new FormControl("", Validators.required)
-
-      //Validators.pattern("^(?! )[a-zA-Z0-9 _@./#,&+-]*$")
     });
     this.findRiderByEmail();
     this.maxday = this.rideForm.value.startdate.day;
@@ -88,34 +79,20 @@ export class RideCreateComponent implements OnInit {
     this.rideForm.value.creatorName = this.creatorName1;
     this.rideService.saveRide(this.rideForm.value)
       .subscribe((res: any) => {
-        // console.log(res);
-        // console.log("in ride create and create++++"+this.email)
-        // console.log("+++++" + this.rideForm.value.startdate);
-        // console.log(this.minDate + "%%%%%%%%")
         this.sDate = this.rideForm.value.startdate;
-        // console.log(this.sDate.year);
-        // console.log(this.sDate);
         this.router.navigate(['/afterlogin2/riderhome3/' + this.email + '/rhomeimages/' + this.email])
       })
   }
   findRiderByEmail() {
     this.riderService.findRider2(this.email)
       .subscribe((res: any) => {
-        //console.log(res);
         this.rider = res;
         this.creatorName1 = res.name;
-        // console.log(this.rider.name);
-        // console.log(this.creatorName1);
       })
   }
   dateCheck() {
     this.message = "";
-    // console.log(this.rideForm.value.startdate.year)
-    // console.log(this.rideForm.value.enddate.year)
-    // console.log(this.rideForm.value.startdate)
-    // console.log(this.rideForm.value.enddate)
     this.yearDifference = this.rideForm.value.enddate.year - this.rideForm.value.startdate.year;
-    // console.log("Year ===" + this.yearDifference);
     if (this.yearDifference < 0) {
       this.isCheck = false;
       this.message = "Previous year entered! Please enter valid end date."
@@ -126,7 +103,6 @@ export class RideCreateComponent implements OnInit {
     }
     else if (this.yearDifference == 0) {
       this.monthDifference = this.rideForm.value.enddate.month - this.rideForm.value.startdate.month;
-      // console.log("Month ===" + this.monthDifference);
       if (this.monthDifference < 0) {
         this.isCheck = false;
         this.message = "Previous month entered! Please enter valid end date."
@@ -137,7 +113,6 @@ export class RideCreateComponent implements OnInit {
       }
       else if (this.monthDifference == 0) {
         this.dayDifference = this.rideForm.value.enddate.day - this.rideForm.value.startdate.day;
-        // console.log("Day ===" + this.dayDifference);
         if (this.dayDifference < 0) {
           this.isCheck = false;
           this.message = "Previous day entered! Please enter valid end date."
@@ -148,7 +123,6 @@ export class RideCreateComponent implements OnInit {
         }
       }
     }
-    // console.log(this.isCheck)
     return !this.isCheck;
   }
 }
